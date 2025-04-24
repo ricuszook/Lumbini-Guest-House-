@@ -1,186 +1,236 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lumbini Guest House</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Century+Gothic&family=Algerian&family=Dancing+Script&display=swap');* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumbini Guest House</title>
+    <!-- Including Slick Carousel CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.min.css" rel="stylesheet">
+    <style>
+        /* General Body and Layout */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: white;
+        }
 
-body {
-  font-family: 'Century Gothic', sans-serif;
-  background: linear-gradient(to bottom right, #ede7f6, #d1c4e9);
-  color: #333;
-}
+        .container {
+            display: flex;
+            min-height: 100vh;
+            flex-wrap: wrap;
+        }
 
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  background-color: #6a1b9a;
-  padding: 20px;
-  animation: fadeInDown 1s ease;
-  flex-wrap: wrap;
-  color: white;
-}
+        /* Left Side Styles */
+        .left-side {
+            width: 50%;
+            padding: 20px;
+            background-color: #5e3e92;
+            text-align: center;
+            flex: 1;
+        }
 
-.header-img {
-  width: 80px;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-}
+        .left-side h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
 
-.header-text {
-  text-align: center;
-}
+        .left-side p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
 
-.header-text h1 {
-  font-family: 'Century Gothic', sans-serif;
-  font-size: 2.5rem;
-  margin: 0;
-}
+        .lang-toggle {
+            background-color: #fff;
+            color: #5e3e92;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
 
-.owner-name {
-  font-family: 'Dancing Script', cursive;
-  font-style: italic;
-  font-size: 1.1rem;
-  margin-top: 5px;
-  color: #f8bbd0;
-  font-weight: bold;
-}
+        .lang-toggle:hover {
+            background-color: #5e3e92;
+            color: white;
+        }
 
-nav {
-  background-color: #4527a0;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
+        .slider {
+            margin-top: 30px;
+        }
 
-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-}
+        .slider img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
 
-.hero {
-  background: linear-gradient(to right, #ab47bc, #8e24aa);
-  text-align: center;
-  padding: 60px 20px;
-  animation: fadeInUp 1.2s ease;
-  color: white;
-}
+        /* Right Side Styles */
+        .right-side {
+            width: 50%;
+            padding: 20px;
+            flex: 1;
+        }
 
-.hero h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
+        .facility, .booking-form, .contact, .reviews, .location {
+            background-color: #333;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
 
-.btn-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
 
-.btn {
-  background: #fff;
-  color: #6a1b9a;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
+        ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
 
-.btn:hover {
-  background: #ddd;
-}
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #444;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
 
-.section {
-  padding: 40px 20px;
-  max-width: 1200px;
-  margin: auto;
-}
+        button {
+            padding: 10px 20px;
+            background-color: #5e3e92;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
 
-.section h2 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-}
+        button:hover {
+            background-color: #43257c;
+        }
 
-#facilities h2 {
-  font-family: 'Algerian', serif;
-}
+        .reviews .comment {
+            background-color: #444;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
 
-.images {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
+        iframe {
+            border-radius: 10px;
+        }
 
-.images img {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 10px;
-}
+        textarea {
+            height: 100px;
+        }
 
-.contact-box {
-  background: #ede7f6;
-  padding: 20px;
-  border-radius: 10px;
-  margin-top: 20px;
-  color: #333;
-}
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
 
-.location-contact-wrapper {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-
-.location-contact-wrapper iframe {
-  flex: 1;
-  min-width: 300px;
-  height: 300px;
-  border-radius: 10px;
-  border: none;
-}
-
-footer {
-  background: #4a148c;
-  color: #eee;
-  text-align: center;
-  padding: 20px;
-}
-
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-  </style>
+            .left-side, .right-side {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="header-container">
-      <img src="https://media-cdn.tripadvisor.com/media/photo-s/18/64/7d/6d/maya-devi-temple.jpg" alt="Lumbini Temple" class="header-img">
-      <div class="header-text">
-        <h1>Lumbini Guest House</h1>
-        <p class="owner-name">Owned by Sheshkant Bhattarai & Bishnu Bhattarai</p>
-      </div>
+    <div class="container">
+        <!-- Left Side: Gallery and Info -->
+        <div class="left-side">
+            <h1>Lumbini Guest House</h1>
+            <p>Islampur Village, Sector 38, Gurugram</p>
+            <button class="lang-toggle">नेपाली / Hindi</button>
+            
+            <!-- Image Gallery Slider -->
+            <div class="slider">
+                <div><img src="room.jpg" alt="Room"></div>
+                <div><img src="food.jpg" alt="Food"></div>
+                <div><img src="room2.jpg" alt="Room 2"></div>
+            </div>
+        </div>
+        
+        <!-- Right Side: Facilities, Reviews, etc. -->
+        <div class="right-side">
+            <div class="facility">
+                <h2>Facilities</h2>
+                <ul>
+                    <li>24-hour support</li>
+                    <li>Homemade, healthy food (veg & non-veg)</li>
+                    <li>Comfortable double bed rooms</li>
+                    <li>Attached bathroom and TV</li>
+                    <li>No pets allowed</li>
+                    <li>Taxi service (6:30 AM - 10:30 PM)</li>
+                </ul>
+            </div>
+            
+            <!-- Booking Form -->
+            <div class="booking-form">
+                <h2>Book Now</h2>
+                <input type="text" placeholder="Full Name">
+                <input type="date">
+                <button>Book Now</button>
+            </div>
+            
+            <!-- Contact Info -->
+            <div class="contact">
+                <h2>Contact Us</h2>
+                <p><i class="fas fa-phone-alt"></i> <a href="tel:+917428671478">+91 74286 71478</a></p>
+            </div>
+            
+            <!-- Customer Reviews -->
+            <div class="reviews">
+                <h2>Customer Reviews</h2>
+                <div id="review-list"></div>
+                <textarea id="comment" placeholder="Add a comment"></textarea>
+                <button onclick="addComment()">Add Comment</button>
+            </div>
+            
+            <!-- Location -->
+            <div class="location">
+                <h2>Find Us</h2>
+                <p>Islampur Village, Sector 38, Gurugram</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.041856358577!2d77.04265277518335!3d28.62913807567206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19b8592fcfa5%3A0xf3d79ae0cfbe6dc0!2sIslampur%2C%20Sector%2038%2C%20Gurugram!5e0!3m2!1sen!2sin!4v1713954140743!5m2!1sen!2sin" width="100%" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
+        </div>
     </div>
-  </header>  <!-- Other content sections remain unchanged --></body>
+    
+    <!-- Including jQuery and Slick Carousel JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    
+    <script>
+        // Slick Slider Initialization
+        $(document).ready(function(){
+            $('.slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 3000
+            });
+        });
+
+        // Add Comment Functionality
+        function addComment() {
+            var comment = document.getElementById("comment").value;
+            if (comment.trim()) {
+                var commentList = document.getElementById("review-list");
+                var newComment = document.createElement("div");
+                newComment.classList.add("comment");
+                newComment.innerHTML = comment;
+                commentList.appendChild(newComment);
+                document.getElementById("comment").value = ""; // clear textarea
+            }
+        }
+    </script>
+</body>
 </html>
