@@ -215,9 +215,9 @@
             <!-- Booking Form -->
             <div class="booking-form">
                 <h2>Book Now</h2>
-                <input type="text" placeholder="Full Name">
-                <input type="date">
-                <button>Book Now</button>
+                <input type="text" id="name" placeholder="Full Name">
+                <input type="date" id="date">
+                <button onclick="sendBookingToWhatsApp()">Book Now</button>
             </div>
             
             <!-- Contact -->
@@ -260,7 +260,7 @@
             });
         });
 
-        // Add Comment Functionality
+        // Function to add a comment
         function addComment() {
             var comment = document.getElementById("comment").value;
             if (comment.trim()) {
@@ -270,6 +270,22 @@
                 newComment.innerHTML = comment;
                 commentList.appendChild(newComment);
                 document.getElementById("comment").value = ""; // clear textarea
+            }
+        }
+
+        // Function to send booking details to WhatsApp
+        function sendBookingToWhatsApp() {
+            var name = document.getElementById("name").value;
+            var date = document.getElementById("date").value;
+            
+            if (name && date) {
+                var whatsappMessage = `New Booking\n\nName: ${name}\nDate: ${date}`;
+                var phoneNumber = "+917428671478";
+                var whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+                
+                window.open(whatsappLink, "_blank");
+            } else {
+                alert("Please fill in both name and date.");
             }
         }
     </script>
