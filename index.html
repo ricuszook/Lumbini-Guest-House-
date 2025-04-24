@@ -1,142 +1,172 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lumbini Guest House</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/css/glightbox.min.css">
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    .fade-in {
-      animation: fadeIn 1s ease-out forwards;
-      opacity: 0;
-    }
-    .slide-in-left {
-      opacity: 0;
-      transform: translateX(-40px);
-      animation: slideInLeft 1s ease-out forwards;
-    }
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    @keyframes slideInLeft {
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-    .hover-scale:hover {
-      transform: scale(1.05);
-      transition: 0.3s ease-in-out;
-    }
-    .scroll-indicator {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 4px;
-      background: #a855f7;
-      z-index: 50;
-      width: 0;
-    }
-    .floating-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 40;
-    }
-    .floating-btn a {
-      background-color: #a855f7;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 9999px;
-      font-weight: bold;
-      box-shadow: 0 5px 15px rgba(168, 85, 247, 0.4);
-      transition: transform 0.2s ease-in-out;
-      text-align: center;
-    }
-    .floating-btn a:hover {
-      transform: scale(1.1);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumbini Guest House</title>
+    <style>
+        /* Basic reset for margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #4B0082; /* Purple background */
+            text-align: center;
+            padding: 50px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        header img {
+            width: 80px;
+            height: auto;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Pop-In Animation for Facilities Section */
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        #facilities {
+            animation: popIn 1.5s ease-out;
+        }
+
+        /* Wave Animation for Location Section */
+        @keyframes wave {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(10deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        #location {
+            animation: wave 2s ease-in-out infinite;
+        }
+
+        /* Image Styles */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Google Map Iframe Styling */
+        iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #4B0082;
+            text-align: center;
+            padding: 20px;
+            font-size: 1rem;
+        }
+    </style>
 </head>
-<body class="bg-gray-900 text-white font-sans">  <div class="scroll-indicator" id="scrollIndicator"></div>  <div class="flex flex-col md:flex-row min-h-screen">
-    <!-- Left Section -->
-    <div class="md:w-1/2 p-6 md:sticky md:top-0 md:h-screen overflow-y-auto bg-gray-800 shadow-lg">
-      <div class="flex items-center space-x-4 mb-6 slide-in-left">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Lumbini_logo.png" alt="Lumbini Logo" class="w-12 h-12">
-        <h1 class="text-3xl font-bold text-purple-400">Lumbini Guest House</h1>
-      </div><h2 class="text-xl mb-2 text-purple-300">Our Rooms</h2>
-  <div class="grid gap-4 mb-6">
-    <a href="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" class="glightbox" data-gallery="rooms"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800" class="rounded hover-scale" alt="Room"></a>
-    <a href="https://images.unsplash.com/photo-1567016575157-8c4cfd0d7d7b" class="glightbox" data-gallery="rooms"><img src="https://images.unsplash.com/photo-1567016575157-8c4cfd0d7d7b?w=800" class="rounded hover-scale" alt="Kitchen"></a>
-    <a href="https://images.unsplash.com/photo-1618221380677-c2c4f32760cd" class="glightbox" data-gallery="rooms"><img src="https://images.unsplash.com/photo-1618221380677-c2c4f32760cd?w=800" class="rounded hover-scale" alt="Bathroom"></a>
-  </div>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to Lumbini Guest House</h1>
+        <img src="lumbini-logo.png" alt="Lumbini Temple Logo">
+    </header>
 
-  <h2 class="text-xl mb-2 text-purple-300">Food</h2>
-  <div class="grid gap-4">
-    <a href="https://images.unsplash.com/photo-1606788075761-3f6c8d31ff7c" class="glightbox" data-gallery="food"><img src="https://images.unsplash.com/photo-1606788075761-3f6c8d31ff7c?w=800" class="rounded hover-scale" alt="Healthy Food"></a>
-    <a href="https://images.unsplash.com/photo-1612197592044-4ec7651d5ad3" class="glightbox" data-gallery="food"><img src="https://images.unsplash.com/photo-1612197592044-4ec7651d5ad3?w=800" class="rounded hover-scale" alt="Non-Veg Meal"></a>
-  </div>
-</div>
+    <!-- Rooms Section -->
+    <section id="rooms">
+        <h2>Our Rooms</h2>
+        <div class="room-images">
+            <img src="room-image.jpg" alt="Cozy guest room with double bed, TV, and window">
+            <p>Our rooms are designed to offer comfort and relaxation, featuring a double bed, TV, and attached bathroom.</p>
+        </div>
+    </section>
 
-<!-- Right Section -->
-<div class="md:w-1/2 p-6 space-y-8">
-  <section class="fade-in">
-    <h2 class="text-2xl text-purple-400 font-bold mb-4">Facilities</h2>
-    <div class="grid grid-cols-2 gap-4">
-      <div><i class="fa-solid fa-wifi"></i> Free Wi-Fi</div>
-      <div><i class="fa-solid fa-mug-hot"></i> Homemade Meals</div>
-      <div><i class="fa-solid fa-tv"></i> Smart TV</div>
-      <div><i class="fa-solid fa-wind"></i> Air Conditioning</div>
-      <div><i class="fa-solid fa-bath"></i> Private Bathroom</div>
-      <div><i class="fa-solid fa-car"></i> Parking Available</div>
-      <div><i class="fa-solid fa-shield"></i> 24/7 Security</div>
-      <div><i class="fa-solid fa-bolt"></i> Power Backup</div>
-      <div><i class="fa-solid fa-utensils"></i> Non-Veg Options</div>
-      <div><i class="fa-solid fa-broom"></i> Daily Housekeeping</div>
-      <div><i class="fa-solid fa-paw"></i> Pets Not Allowed</div>
-      <div><i class="fa-solid fa-taxi"></i> Taxi Service (6:30 AM to 10:30 PM)</div>
-    </div>
-  </section>
+    <!-- Kitchen Section -->
+    <section id="kitchen">
+        <h2>Our Kitchen</h2>
+        <div class="kitchen-images">
+            <img src="kitchen-image.jpg" alt="Clean and functional kitchen with basic appliances">
+            <p>We offer a clean and practical kitchen equipped with everything you need to cook your meals comfortably.</p>
+        </div>
+    </section>
 
-  <section class="fade-in">
-    <h2 class="text-2xl text-purple-400 font-bold mb-2">Location</h2>
-    <p class="mb-2">Islampur, Sector 38, Gurugram (Behind Medanta Hospital)</p>
-    <a href="https://www.google.com/maps/place/Medanta+-+The+Medicity/@28.4144234,77.0383134,17z" target="_blank" class="text-purple-300 underline">View on Google Maps</a>
-  </section>
+    <!-- Bathroom Section -->
+    <section id="bathroom">
+        <h2>Our Bathroom</h2>
+        <div class="bathroom-images">
+            <img src="bathroom-image.jpg" alt="Well-maintained guest house bathroom with shower">
+            <p>The bathroom is clean, functional, and well-maintained with modern fixtures.</p>
+        </div>
+    </section>
 
-  <section class="fade-in">
-    <h2 class="text-2xl text-purple-400 font-bold mb-2">Book Your Stay</h2>
-    <p>Call us: <a href="tel:+917428671478" class="text-purple-300 underline">+91 74286 71478</a></p>
-  </section>
+    <!-- Food Section -->
+    <section id="food">
+        <h2>Our Delicious Food</h2>
+        <div class="food-images">
+            <img src="food-image.jpg" alt="Delicious food served at Lumbini Guest House">
+            <p>Enjoy our healthy and tasty homemade food. We offer a variety of dishes including vegetarian and non-vegetarian options.</p>
+        </div>
+    </section>
 
-  <section class="fade-in">
-    <h2 class="text-2xl text-purple-400 font-bold mb-2">Owners</h2>
-    <p>Sheshkant Bhattarai & Bishnu Bhattarai</p>
-  </section>
-</div>
+    <!-- Facilities Section with Pop-In Animation -->
+    <section id="facilities">
+        <h2>Our Facilities</h2>
+        <ul>
+            <li>24-hour support</li>
+            <li>Taxi service from 6:30 AM to 10:30 PM</li>
+            <li>Free Wi-Fi</li>
+            <li>Comfortable seating area</li>
+            <li>Clean and safe environment</li>
+            <li>Parking available</li>
+            <li>Complimentary breakfast</li>
+            <li>Room service</li>
+            <li>Heating and cooling systems</li>
+            <li>And more...</li>
+        </ul>
+    </section>
 
-  </div>  <div class="floating-btn">
-    <a href="tel:+917428671478">Book Now</a>
-    <a href="https://www.google.com/maps/place/Medanta+-+The+Medicity/@28.4144234,77.0383134,17z" target="_blank">Find Location</a>
-  </div>  <script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/js/glightbox.min.js"></script>  <script>
-    const lightbox = GLightbox({ selector: '.glightbox' });
+    <!-- Location Section with Wave Animation -->
+    <section id="location">
+        <h2>Find Us on Google Maps</h2>
+        <div class="google-map">
+            <iframe src="https://maps.google.com/maps?q=Islampur%20Sector%2038%20Gurugram&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+        </div>
+    </section>
 
-    window.addEventListener('scroll', () => {
-      const scrollIndicator = document.getElementById('scrollIndicator');
-      const scrollTop = window.scrollY;
-      const docHeight = document.body.scrollHeight - window.innerHeight;
-      const scrollPercent = (scrollTop / docHeight) * 100;
-      scrollIndicator.style.width = scrollPercent + '%';
-    });
-  </script></body>
+    <footer>
+        <p>Contact: +91 74286 71478</p>
+        <p>Owner: Sheshkant Bhattarai & Bishnu Bhattarai</p>
+    </footer>
+</body>
 </html>
