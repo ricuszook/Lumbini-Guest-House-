@@ -1,187 +1,139 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Lumbini Guest House</title>
+
+  <!-- Link to Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Lato:wght@400&display=swap" rel="stylesheet">
+
+  <!-- Add your custom styles -->
   <style>
-    * {
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: #121212;
+      color: #fff;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #121212;
-  color: #fff;
-}
+    }
 
-header {
-  background-color: #4B0082;
-  padding: 40px 20px;
-  text-align: center;
-  animation: fadeInDown 1s ease;
-}
+    h1, h2, h3, h4, h5 {
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+    }
 
-header img {
-  width: 60px;
-  margin-bottom: 10px;
-}
+    header {
+      background-color: #5E2A8C; /* Purple theme */
+      padding: 20px;
+      text-align: center;
+    }
 
-header h1 {
-  font-size: 2rem;
-}
+    h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
 
-nav {
-  background-color: #222;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
+    nav {
+      text-align: center;
+      margin-top: 20px;
+    }
 
-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-}
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-.hero {
-  background: linear-gradient(135deg, #6A0DAD, #4B0082);
-  text-align: center;
-  padding: 60px 20px;
-  animation: fadeInUp 1.2s ease;
-}
+    .cta-button {
+      background-color: #F1C40F; /* Call to action button color */
+      color: #121212;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
 
-.hero h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
+    .cta-button:hover {
+      background-color: #F39C12;
+    }
 
-.btn-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
+    .container {
+      padding: 50px;
+    }
 
-.btn {
-  background: #fff;
-  color: #4B0082;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
+    .room-gallery img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
-.btn:hover {
-  background: #ddd;
-}
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      font-family: 'Lato', sans-serif;
+    }
 
-.section {
-  padding: 40px 20px;
-  max-width: 1200px;
-  margin: auto;
-}
+    .contact-form button {
+      background-color: #5E2A8C;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 5px;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-.section h2 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-}
-
-.images {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-
-.images img {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 10px;
-}
-
-.contact-box {
-  background: #333;
-  padding: 20px;
-  border-radius: 10px;
-  margin-top: 20px;
-}
-
-iframe {
-  width: 100%;
-  height: 300px;
-  border-radius: 10px;
-  margin-top: 20px;
-}
-
-footer {
-  background: #1a1a1a;
-  color: #ccc;
-  text-align: center;
-  padding: 20px;
-}
-
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
+    .contact-form button:hover {
+      background-color: #8E44AD;
+    }
   </style>
 </head>
-<body>  <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Lumbini_Logo.svg" alt="Lumbini Logo">
+<body>
+  <header>
     <h1>Lumbini Guest House</h1>
-  </header>  <nav>
-    <a href="#rooms">Rooms</a>
-    <a href="#kitchen">Kitchen</a>
-    <a href="#facilities">Facilities</a>
-    <a href="#contact">Contact</a>
-  </nav>  <div class="hero">
-    <h2>Welcome to Lumbini Guest House</h2>
-    <div class="btn-container">
-      <a class="btn" href="https://maps.app.goo.gl/71qtpDWCr3PeSkMz5">View Location</a>
-      <a class="btn" href="tel:+917428671478">Book Now</a>
-    </div>
-  </div>  <section class="section" id="rooms">
-    <h2>Our Rooms</h2>
-    <div class="images">
-      <img src="room-image.jpg" alt="Room">
-      <img src="bathroom.jpg" alt="Bathroom">
-    </div>
-  </section>  <section class="section" id="kitchen">
-    <h2>Our Kitchen</h2>
-    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Kitchen">
-  </section>  <section class="section" id="facilities">
-    <h2>Facilities</h2>
-    <ul>
-      <li>24-hour support</li>
-      <li>Taxi service from 6:30 AM to 10:30 PM</li>
-      <li>Free Wi-Fi</li>
-      <li>Complimentary breakfast</li>
-      <li>Comfortable sitting area</li>
-      <li>Parking</li>
-      <li>Room service</li>
-      <li>AC/Heating</li>
-      <li>Healthy Nepali and Hindi food</li>
-      <li>Non-vegetarian and vegetarian meals</li>
-    </ul>
-    <p style="margin-top: 10px;">Note: Pets are not allowed.</p>
-  </section>  <section class="section" id="contact">
-    <h2>Contact & Location</h2>
-    <div class="contact-box">
-      <p><strong>Phone:</strong> <a href="tel:+917428671478" style="color: #fff;">+91 74286 71478</a></p>
-      <p><strong>Owners:</strong> Sheshkant Bhattarai & Bishnu Bhattarai</p>
-    </div>
-    <iframe src="https://maps.google.com/maps?q=Islampur%20Sector%2038%20Gurugram&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
-  </section>  <footer>
-    <p>Lumbini Guest House, Islampur Sector 38, Gurugram</p>
-    <p>&copy; 2025 All rights reserved.</p>
-  </footer></body>
+    <nav>
+      <a href="#rooms">Rooms</a>
+      <a href="#food">Food</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section id="rooms">
+      <h2>Our Rooms</h2>
+      <div class="room-gallery">
+        <img src="room1.jpg" alt="Room 1">
+        <img src="room2.jpg" alt="Room 2">
+      </div>
+    </section>
+
+    <section id="food">
+      <h2>Our Food</h2>
+      <p>Delicious and healthy food options served fresh.</p>
+      <a href="#contact" class="cta-button">Book Now</a>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <div class="contact-form">
+        <form action="#" method="post">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <textarea placeholder="Your Message" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+  </div>
+</body>
 </html>
