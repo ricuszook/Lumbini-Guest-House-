@@ -1,204 +1,190 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lumbini Guest House</title>
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap');
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
+    }body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(18, 18, 18, 0.9)), url('https://images.unsplash.com/photo-1613977257363-707ba9348229?auto=format&fit=crop&w=1950&q=80');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  color: #fff;
+}
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #121212;
-      color: #fff;
-    }
+header {
+  background-color: rgba(75, 0, 130, 0.85);
+  padding: 30px 20px;
+  text-align: center;
+  animation: fadeInDown 1s ease;
+}
 
-    .header-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      background-color: #4B0082;
-      padding: 20px;
-      animation: fadeInDown 1s ease;
-      flex-wrap: wrap;
-    }
+header img {
+  width: 100px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+}
 
-    .header-img {
-      width: 80px;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-    }
+header h1 {
+  font-size: 3rem;
+  font-family: Algerian, serif;
+  margin-top: 10px;
+}
 
-    .header-text {
-      text-align: center;
-      color: #fff;
-    }
+.owner-name {
+  font-size: 1.1rem;
+  color: #e0e0e0;
+  font-weight: bold;
+}
 
-    .header-text h1 {
-      font-family: Algerian, serif;
-      font-size: 2.5rem;
-      margin: 0;
-    }
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #222;
+  display: flex;
+  justify-content: center;
+  padding: 15px 10px;
+  gap: 30px;
+}
 
-    .owner-name {
-      font-size: 1rem;
-      margin-top: 5px;
-      color: #e0e0e0;
-      font-weight: bold;
-    }
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
 
-    nav {
-      background-color: #222;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+nav a:hover {
+  color: #6A0DAD;
+}
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-    }
+.hero {
+  text-align: center;
+  padding: 100px 20px 60px;
+}
 
-    .hero {
-      background: linear-gradient(135deg, #6A0DAD, #4B0082);
-      text-align: center;
-      padding: 60px 20px;
-      animation: fadeInUp 1.2s ease;
-    }
+.hero h2 {
+  font-size: 2.8rem;
+  margin-bottom: 30px;
+}
 
-    .hero h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
+.btn-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 
-    .btn-container {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+.btn {
+  background: #fff;
+  color: #4B0082;
+  padding: 12px 25px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
 
-    .btn {
-      background: #fff;
-      color: #4B0082;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-weight: bold;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
+.btn:hover {
+  background: #ddd;
+  transform: translateY(-2px);
+}
 
-    .btn:hover {
-      background: #ddd;
-    }
+.section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 20px;
+}
 
-    .section {
-      padding: 40px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
+.section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
 
-    .section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-    }
+.images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
 
-    .images {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
+.images img {
+  width: 100%;
+  border-radius: 10px;
+  height: auto;
+}
 
-    .images img {
-      width: 100%;
-      max-width: 300px;
-      border-radius: 10px;
-    }
+ul {
+  list-style: square inside;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
 
-    .contact-box {
-      background: #333;
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 20px;
-    }
+.contact-box {
+  background: rgba(50, 50, 50, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
 
-    iframe {
-      width: 100%;
-      height: 300px;
-      border-radius: 10px;
-      margin-top: 20px;
-    }
+iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 20px;
+}
 
-    footer {
-      background: #1a1a1a;
-      color: #ccc;
-      text-align: center;
-      padding: 20px;
-    }
+footer {
+  background-color: #1a1a1a;
+  text-align: center;
+  padding: 25px;
+  color: #ccc;
+}
 
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
   </style>
 </head>
 <body>
-  <header>
-    <div class="header-container">
-      <img src="https://media-cdn.tripadvisor.com/media/photo-s/18/64/7d/6d/maya-devi-temple.jpg" alt="Lumbini Temple" class="header-img">
-      <div class="header-text">
-        <h1>Lumbini Guest House</h1>
-        <p class="owner-name">Owned by <strong>Sheshkant Bhattarai</strong> & <strong>Bishnu Bhattarai</strong></p>
-      </div>
-    </div>
-  </header>
-
-  <nav>
+  <header data-aos="fade-down">
+    <img src="https://media-cdn.tripadvisor.com/media/photo-s/18/64/7d/6d/maya-devi-temple.jpg" alt="Lumbini Temple">
+    <h1>Lumbini Guest House</h1>
+    <p class="owner-name">Owned by <strong>Sheshkant Bhattarai</strong> & <strong>Bishnu Bhattarai</strong></p>
+  </header>  <nav>
     <a href="#rooms">Rooms</a>
     <a href="#kitchen">Kitchen</a>
     <a href="#facilities">Facilities</a>
     <a href="#contact">Contact</a>
-  </nav>
-
-  <div class="hero">
+  </nav>  <section class="hero" data-aos="fade-up">
     <h2>Welcome to Lumbini Guest House</h2>
     <div class="btn-container">
       <a class="btn" href="https://maps.app.goo.gl/71qtpDWCr3PeSkMz5">View Location</a>
       <a class="btn" href="tel:+917428671478">Book Now</a>
     </div>
-  </div>
-
-  <section class="section" id="rooms">
+  </section>  <section class="section" id="rooms" data-aos="fade-right">
     <h2>Our Rooms</h2>
     <div class="images">
-      <img src="room-image.jpg" alt="Room">
-      <img src="bathroom.jpg" alt="Bathroom">
+      <img src="https://images.unsplash.com/photo-1613977257363-707ba9348229?auto=format&fit=crop&w=600&q=80" alt="Room">
+      <img src="https://images.unsplash.com/photo-1588854337111-1c17b84a7644?auto=format&fit=crop&w=600&q=80" alt="Bathroom">
     </div>
-  </section>
-
-  <section class="section" id="kitchen">
+  </section>  <section class="section" id="kitchen" data-aos="fade-left">
     <h2>Our Kitchen</h2>
     <p>We provide hygienic, home-style food prepared with care in a clean and well-maintained kitchen. Our meals are cooked without harmful ingredients and offer both vegetarian and non-vegetarian options.</p>
-  </section>
-
-  <section class="section" id="facilities">
+  </section>  <section class="section" id="facilities" data-aos="zoom-in">
     <h2>Facilities</h2>
     <ul>
       <li>24-hour support</li>
@@ -212,21 +198,18 @@
       <li>Healthy Nepali and Hindi food</li>
       <li>Non-vegetarian and vegetarian meals</li>
     </ul>
-    <p style="margin-top: 10px;">Note: Pets are not allowed.</p>
-  </section>
-
-  <section class="section" id="contact">
+    <p><em>Note: Pets are not allowed.</em></p>
+  </section>  <section class="section" id="contact" data-aos="fade-up">
     <h2>Contact & Location</h2>
     <div class="contact-box">
       <p><strong>Phone:</strong> <a href="tel:+917428671478" style="color: #fff;">+91 74286 71478</a></p>
       <p><strong>Owners:</strong> Sheshkant Bhattarai & Bishnu Bhattarai</p>
     </div>
     <iframe src="https://maps.google.com/maps?q=Islampur%20Sector%2038%20Gurugram&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
-  </section>
-
-  <footer>
+  </section>  <footer>
     <p>Lumbini Guest House, Islampur Sector 38, Gurugram</p>
     <p>&copy; 2025 All rights reserved.</p>
-  </footer>
-</body>
+  </footer>  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>  <script>
+    AOS.init();
+  </script></body>
 </html>
