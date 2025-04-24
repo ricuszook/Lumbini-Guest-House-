@@ -25,6 +25,7 @@ header {
 }
 
 header h1 {
+  font-family: 'Century Schoolbook', serif;
   font-size: 3rem;
   color: #e0b3ff;
   margin-bottom: 10px;
@@ -69,6 +70,10 @@ section h2 {
   margin-bottom: 20px;
 }
 
+#facilities h2 {
+  font-family: Algerian, serif;
+}
+
 .image-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -103,6 +108,18 @@ section h2 {
 
 .btn:hover {
   background: #d6a6f2;
+}
+
+.contact-box {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 30px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 
 footer {
@@ -159,9 +176,9 @@ footer {
     </ul>
   </section>  <section id="contact">
     <h2>Contact Us</h2>
-    <p>Call us at <a href="tel:+917428671478" style="color: #ffd6ff; text-decoration: underline;">+91 74286 71478</a></p>
-    <p>Located in Islampur Sector 38, Gurugram</p>
-    <div class="btn-container">
+    <div class="contact-box">
+      <p><strong>Phone:</strong> <a href="tel:+917428671478" style="color: #ffd6ff; text-decoration: underline;">+91 74286 71478</a></p>
+      <p><strong>Location:</strong> Islampur Sector 38, Gurugram</p>
       <a class="btn" href="https://maps.app.goo.gl/71qtpDWCr3PeSkMz5" target="_blank">View on Map</a>
     </div>
   </section>  <footer>
