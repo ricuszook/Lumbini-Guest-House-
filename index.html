@@ -9,187 +9,179 @@
       padding: 0;
       box-sizing: border-box;
     }body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   background-color: #121212;
   color: #fff;
-  padding: 0;
-  margin: 0;
 }
 
 header {
   background-color: #4B0082;
   padding: 40px 20px;
   text-align: center;
-  animation: welcome 1s ease-in-out;
-}
-
-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+  animation: fadeInDown 1s ease;
 }
 
 header img {
-  width: 80px;
-  height: auto;
+  width: 60px;
   margin-bottom: 10px;
 }
 
+header h1 {
+  font-size: 2rem;
+}
+
 nav {
-  background-color: #333;
-  text-align: center;
-  padding: 10px;
+  background-color: #222;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 nav a {
   color: #fff;
   text-decoration: none;
-  margin: 0 10px;
-  font-size: 1rem;
-  display: inline-block;
+  font-weight: 500;
 }
 
-nav a:hover {
-  color: #4B0082;
+.hero {
+  background: linear-gradient(135deg, #6A0DAD, #4B0082);
+  text-align: center;
+  padding: 60px 20px;
+  animation: fadeInUp 1.2s ease;
 }
 
-.container {
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.btn-container {
   display: flex;
-  flex-direction: column;
-  padding: 20px;
+  justify-content: center;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
-.left, .right {
+.btn {
+  background: #fff;
+  color: #4B0082;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #ddd;
+}
+
+.section {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.images img {
   width: 100%;
-}
-
-section {
-  margin-bottom: 30px;
-}
-
-h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-img {
-  width: 100%;
+  max-width: 300px;
   border-radius: 10px;
-  margin-bottom: 10px;
 }
 
-.contact-location-box {
-  background-color: #3a3a3a;
-  padding: 15px;
+.contact-box {
+  background: #333;
+  padding: 20px;
   border-radius: 10px;
+  margin-top: 20px;
 }
 
 iframe {
   width: 100%;
   height: 300px;
-  border: none;
   border-radius: 10px;
+  margin-top: 20px;
 }
 
 footer {
-  background-color: #4B0082;
+  background: #1a1a1a;
+  color: #ccc;
   text-align: center;
-  padding: 15px;
-  font-size: 0.9rem;
+  padding: 20px;
 }
 
-ul {
-  padding-left: 20px;
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-li {
-  margin-bottom: 8px;
-}
-
-@keyframes welcome {
-  0% {
-    opacity: 0;
-    transform: translateY(-100px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    flex-direction: row;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .left, .right {
-    width: 48%;
-  }
-
-  header h1 {
-    font-size: 3rem;
-  }
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
   </style>
 </head>
 <body>  <header>
-    <h1>Welcome to Lumbini Guest House</h1>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Lumbini_Logo.svg" alt="Lumbini Temple Logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Lumbini_Logo.svg" alt="Lumbini Logo">
+    <h1>Lumbini Guest House</h1>
   </header>  <nav>
     <a href="#rooms">Rooms</a>
+    <a href="#kitchen">Kitchen</a>
     <a href="#facilities">Facilities</a>
-    <a href="#location">Location</a>
-  </nav>  <div class="container">
-    <div class="left">
-      <section id="rooms">
-        <h2>Our Rooms</h2>
-        <img src="room-image.jpg" alt="Cozy guest room with double bed, TV, and window">
-        <p>Comfortable rooms with double beds, attached bathrooms, and TV for relaxation.</p>
-      </section><section id="kitchen">
+    <a href="#contact">Contact</a>
+  </nav>  <div class="hero">
+    <h2>Welcome to Lumbini Guest House</h2>
+    <div class="btn-container">
+      <a class="btn" href="https://maps.app.goo.gl/71qtpDWCr3PeSkMz5">View Location</a>
+      <a class="btn" href="tel:+917428671478">Book Now</a>
+    </div>
+  </div>  <section class="section" id="rooms">
+    <h2>Our Rooms</h2>
+    <div class="images">
+      <img src="room-image.jpg" alt="Room">
+      <img src="bathroom.jpg" alt="Bathroom">
+    </div>
+  </section>  <section class="section" id="kitchen">
     <h2>Our Kitchen</h2>
-    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="Middle-class guest house kitchen">
-    <p>A clean and well-equipped kitchen for guests to prepare meals with all the basic necessities.</p>
-  </section>
-
-  <section id="food">
-    <h2>Delicious Food</h2>
-    <img src="food-image.jpg" alt="Healthy and delicious food served at Lumbini Guest House">
-    <p>Enjoy healthy, home-cooked meals including vegetarian and non-vegetarian dishes.</p>
-  </section>
-</div>
-
-<div class="right">
-  <section id="facilities">
-    <h2>Our Facilities</h2>
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Kitchen">
+  </section>  <section class="section" id="facilities">
+    <h2>Facilities</h2>
     <ul>
       <li>24-hour support</li>
       <li>Taxi service from 6:30 AM to 10:30 PM</li>
       <li>Free Wi-Fi</li>
       <li>Complimentary breakfast</li>
-      <li>Comfortable seating area</li>
-      <li>Parking available</li>
+      <li>Comfortable sitting area</li>
+      <li>Parking</li>
       <li>Room service</li>
-      <li>Heating & Cooling systems</li>
-      <li>Healthy food options</li>
+      <li>AC/Heating</li>
+      <li>Healthy Nepali and Hindi food</li>
       <li>Non-vegetarian and vegetarian meals</li>
     </ul>
-  </section>
-
-  <section id="location" class="contact-location-box">
-    <h2>Find Us on Google Maps</h2>
+    <p style="margin-top: 10px;">Note: Pets are not allowed.</p>
+  </section>  <section class="section" id="contact">
+    <h2>Contact & Location</h2>
+    <div class="contact-box">
+      <p><strong>Phone:</strong> <a href="tel:+917428671478" style="color: #fff;">+91 74286 71478</a></p>
+      <p><strong>Owners:</strong> Sheshkant Bhattarai & Bishnu Bhattarai</p>
+    </div>
     <iframe src="https://maps.google.com/maps?q=Islampur%20Sector%2038%20Gurugram&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
-    <p><strong>Contact Us:</strong></p>
-    <p>Phone: +91 74286 71478</p>
-    <p>Owner: Sheshkant Bhattarai & Bishnu Bhattarai</p>
-  </section>
-</div>
-
-  </div>  <footer>
-    <p>Contact: +91 74286 71478</p>
-    <p>Owner: Sheshkant Bhattarai & Bishnu Bhattarai</p>
+  </section>  <footer>
+    <p>Lumbini Guest House, Islampur Sector 38, Gurugram</p>
+    <p>&copy; 2025 All rights reserved.</p>
   </footer></body>
 </html>
