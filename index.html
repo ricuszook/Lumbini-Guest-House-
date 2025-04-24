@@ -1,39 +1,68 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Lumbini Guest House</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body { font-family: sans-serif; background: #f3e8ff; color: #333; margin: 0; padding: 0; }
-    header, footer { background: #6b21a8; color: white; text-align: center; padding: 1em; }
-    main { padding: 1em; }
-    .card { background: white; margin: 1em 0; padding: 1em; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    a { color: #6b21a8; text-decoration: none; }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Lumbini Guest House</h1>
-    <p>Islampur Village, Sector 38, Gurugram</p>
-  </header>
-  <main>
-    <div class="card">
-      <h2>Our Services</h2>
-      <ul>
-        <li>Healthy, homemade food (non-veg too)</li>
-        <li>Comfortable bedrooms</li>
-        <li>Homely behavior</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h2>Contact Us</h2>
-      <p><a href="tel:+917428671478">Call: +91 74286 71478</a></p>
-      <p><a href="https://maps.google.com/?q=Islampur+Village,+Sector+38,+Gurugram,+Haryana+122001">View Location</a></p>
-      <p>Owners: Sheshkant & Bishnu Bhattarai</p>
-    </div>
-  </main>
-  <footer>
-    &copy; 2025 Lumbini Guest House
+import { useEffect } from "react"; import { motion } from "framer-motion"; import { Card, CardContent } from "@/components/ui/card"; import { Button } from "@/components/ui/button"; import { MapPin, PhoneCall } from "lucide-react";
+
+export default function LumbiniGuestHouse() { useEffect(() => { window.scrollTo(0, 0); }, []);
+
+const facilities = [ "24/7 Support", "High-Speed Wi-Fi", "Homemade Healthy Food", "Non-Vegetarian Options", "Air-Conditioned Rooms", "Daily Housekeeping", "Private Bathrooms", "Fully Equipped Kitchen", "Peaceful Environment", "Ample Parking Space", "Smart TV in Each Room", "Tea/Coffee Facilities", "Laundry Service", "Secure Premises", "Power Backup" ];
+
+return ( <div className="bg-purple-50 min-h-screen"> <motion.div initial={{ opacity: 0, y: -100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="text-center py-10 bg-purple-600 text-white text-4xl font-bold shadow-lg" > Welcome to Lumbini Guest House </motion.div>
+
+<div className="p-6 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <Card>
+      <CardContent>
+        <img src="/images/room1.jpg" alt="Room" className="rounded-xl mb-4" />
+        <h2 className="text-xl font-semibold">Comfortable Bedrooms</h2>
+        <p>Spacious rooms with cozy beds and modern interiors.</p>
+      </CardContent>
+    </Card>
+
+    <Card>
+      <CardContent>
+        <img src="/images/kitchen.jpg" alt="Kitchen" className="rounded-xl mb-4" />
+        <h2 className="text-xl font-semibold">Fully Equipped Kitchen</h2>
+        <p>Cook or request fresh meals in our modern kitchen space.</p>
+      </CardContent>
+    </Card>
+
+    <Card>
+      <CardContent>
+        <img src="/images/bathroom.jpg" alt="Bathroom" className="rounded-xl mb-4" />
+        <h2 className="text-xl font-semibold">Private Bathrooms</h2>
+        <p>Neat and clean bathrooms with essential toiletries.</p>
+      </CardContent>
+    </Card>
+  </div>
+
+  <div className="p-6">
+    <h2 className="text-2xl font-bold mb-4 text-purple-700">Our Facilities</h2>
+    <ul className="grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+      {facilities.map((item, index) => (
+        <li key={index} className="bg-white p-4 rounded-xl shadow border-l-4 border-purple-500">
+          {item}
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <div className="p-6">
+    <h2 className="text-2xl font-bold mb-2 text-purple-700">Contact Us</h2>
+    <p className="flex items-center gap-2 text-lg"><PhoneCall /> <a href="tel:+917428671478">+91 74286 71478</a></p>
+    <p className="flex items-center gap-2 text-lg"><MapPin /> Islampur Village, Sector 38, Gurugram, Haryana 122001, India (Behind Medanta Hospital)</p>
+  </div>
+
+  <div className="p-6">
+    <iframe
+      className="w-full h-96 rounded-xl shadow"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.1701505674365!2d77.0485205751749!3d28.592140175683522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d18b1a8c05a3d%3A0x3e0570fbd17a93b4!2sMedanta%20-%20The%20Medicity!5e0!3m2!1sen!2sin!4v1713891819725!5m2!1sen!2sin"
+      allowFullScreen=""
+      loading="lazy"
+    ></iframe>
+  </div>
+
+  <footer className="bg-purple-600 text-white p-6 text-center">
+    <img src="/images/lumbini-logo.png" alt="Lumbini Logo" className="mx-auto mb-2 w-16" />
+    <p>&copy; 2025 Lumbini Guest House | Sheshkant Bhattarai & Bishnu Bhattarai</p>
   </footer>
-</body>
-</html>
+</div>
+
+); }
+
