@@ -14,10 +14,21 @@
       animation: fadeIn 1s ease-out forwards;
       opacity: 0;
     }
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      animation: slideInLeft 1s ease-out forwards;
+    }
     @keyframes fadeIn {
       to {
         opacity: 1;
         transform: translateY(0);
+      }
+    }
+    @keyframes slideInLeft {
+      to {
+        opacity: 1;
+        transform: translateX(0);
       }
     }
     .hover-scale:hover {
@@ -33,10 +44,16 @@
       z-index: 50;
       width: 0;
     }
-    .book-now-btn {
+    .floating-btn {
       position: fixed;
       bottom: 20px;
       right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 40;
+    }
+    .floating-btn a {
       background-color: #a855f7;
       color: white;
       padding: 12px 20px;
@@ -44,9 +61,9 @@
       font-weight: bold;
       box-shadow: 0 5px 15px rgba(168, 85, 247, 0.4);
       transition: transform 0.2s ease-in-out;
-      z-index: 40;
+      text-align: center;
     }
-    .book-now-btn:hover {
+    .floating-btn a:hover {
       transform: scale(1.1);
     }
   </style>
@@ -54,20 +71,20 @@
 <body class="bg-gray-900 text-white font-sans">  <div class="scroll-indicator" id="scrollIndicator"></div>  <div class="flex flex-col md:flex-row min-h-screen">
     <!-- Left Section -->
     <div class="md:w-1/2 p-6 md:sticky md:top-0 md:h-screen overflow-y-auto bg-gray-800 shadow-lg">
-      <div class="flex items-center space-x-4 mb-6">
+      <div class="flex items-center space-x-4 mb-6 slide-in-left">
         <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Lumbini_logo.png" alt="Lumbini Logo" class="w-12 h-12">
         <h1 class="text-3xl font-bold text-purple-400">Lumbini Guest House</h1>
       </div><h2 class="text-xl mb-2 text-purple-300">Our Rooms</h2>
   <div class="grid gap-4 mb-6">
-    <a href="https://via.placeholder.com/1200x800?text=Bedroom" class="glightbox" data-gallery="rooms"><img src="https://via.placeholder.com/400x250?text=Bedroom" class="rounded hover-scale" alt="Room"></a>
-    <a href="https://via.placeholder.com/1200x800?text=Kitchen" class="glightbox" data-gallery="rooms"><img src="https://via.placeholder.com/400x250?text=Kitchen" class="rounded hover-scale" alt="Kitchen"></a>
-    <a href="https://via.placeholder.com/1200x800?text=Bathroom" class="glightbox" data-gallery="rooms"><img src="https://via.placeholder.com/400x250?text=Bathroom" class="rounded hover-scale" alt="Bathroom"></a>
+    <a href="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" class="glightbox" data-gallery="rooms"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800" class="rounded hover-scale" alt="Room"></a>
+    <a href="https://images.unsplash.com/photo-1567016575157-8c4cfd0d7d7b" class="glightbox" data-gallery="rooms"><img src="https://images.unsplash.com/photo-1567016575157-8c4cfd0d7d7b?w=800" class="rounded hover-scale" alt="Kitchen"></a>
+    <a href="https://images.unsplash.com/photo-1618221380677-c2c4f32760cd" class="glightbox" data-gallery="rooms"><img src="https://images.unsplash.com/photo-1618221380677-c2c4f32760cd?w=800" class="rounded hover-scale" alt="Bathroom"></a>
   </div>
 
   <h2 class="text-xl mb-2 text-purple-300">Food</h2>
   <div class="grid gap-4">
-    <a href="https://via.placeholder.com/1200x800?text=Healthy+Food" class="glightbox" data-gallery="food"><img src="https://via.placeholder.com/400x250?text=Healthy+Food" class="rounded hover-scale" alt="Food"></a>
-    <a href="https://via.placeholder.com/1200x800?text=Non-Veg+Meal" class="glightbox" data-gallery="food"><img src="https://via.placeholder.com/400x250?text=Non-Veg+Meal" class="rounded hover-scale" alt="Food"></a>
+    <a href="https://images.unsplash.com/photo-1606788075761-3f6c8d31ff7c" class="glightbox" data-gallery="food"><img src="https://images.unsplash.com/photo-1606788075761-3f6c8d31ff7c?w=800" class="rounded hover-scale" alt="Healthy Food"></a>
+    <a href="https://images.unsplash.com/photo-1612197592044-4ec7651d5ad3" class="glightbox" data-gallery="food"><img src="https://images.unsplash.com/photo-1612197592044-4ec7651d5ad3?w=800" class="rounded hover-scale" alt="Non-Veg Meal"></a>
   </div>
 </div>
 
@@ -94,7 +111,7 @@
   <section class="fade-in">
     <h2 class="text-2xl text-purple-400 font-bold mb-2">Location</h2>
     <p class="mb-2">Islampur, Sector 38, Gurugram (Behind Medanta Hospital)</p>
-    <a href="https://www.google.com/maps/place/Medanta+-+The+Medicity/@28.5921402,77.0507093,17z" target="_blank" class="text-purple-300 underline">View on Google Maps</a>
+    <a href="https://www.google.com/maps/place/Medanta+-+The+Medicity/@28.4144234,77.0383134,17z" target="_blank" class="text-purple-300 underline">View on Google Maps</a>
   </section>
 
   <section class="fade-in">
@@ -108,9 +125,10 @@
   </section>
 </div>
 
-  </div><a href="tel:+917428671478" class="book-now-btn">Book Now</a>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/js/glightbox.min.js"></script>  <script>
+  </div>  <div class="floating-btn">
+    <a href="tel:+917428671478">Book Now</a>
+    <a href="https://www.google.com/maps/place/Medanta+-+The+Medicity/@28.4144234,77.0383134,17z" target="_blank">Find Location</a>
+  </div>  <script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/js/glightbox.min.js"></script>  <script>
     const lightbox = GLightbox({ selector: '.glightbox' });
 
     window.addEventListener('scroll', () => {
