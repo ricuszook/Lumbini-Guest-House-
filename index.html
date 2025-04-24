@@ -1,270 +1,171 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lumbini Guest House</title>
-  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
+    }body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to right, #2c3e50, #4b0082);
+  color: #f5f5f5;
+  overflow-x: hidden;
+}
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #6A0DAD, #4B0082);
-      color: #fff;
-      height: 100%;
-      overflow-x: hidden;
-      animation: gradientBackground 5s ease infinite;
-    }
+header {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  text-align: center;
+  padding: 40px 20px;
+  animation: fadeIn 1s ease-out;
+}
 
-    @keyframes gradientBackground {
-      0% { background: linear-gradient(to right, #6A0DAD, #4B0082); }
-      50% { background: linear-gradient(to right, #FF6347, #FFD700); }
-      100% { background: linear-gradient(to right, #6A0DAD, #4B0082); }
-    }
+header h1 {
+  font-size: 3rem;
+  color: #e0b3ff;
+  margin-bottom: 10px;
+}
 
-    header {
-      background: rgba(0, 0, 0, 0.7);
-      padding: 50px 20px;
-      text-align: center;
-      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-      animation: fadeInDown 1s ease;
-    }
+header p {
+  color: #ccc;
+  font-size: 1.2rem;
+}
 
-    header img {
-      width: 120px;
-      height: auto;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-    }
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  background: #3d3d5c;
+  padding: 15px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
 
-    header h1 {
-      font-size: 3.5rem;
-      font-family: 'Algerian', serif;
-      margin-top: 10px;
-      color: #fff;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-    }
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
 
-    header .owner-name {
-      font-size: 1.2rem;
-      color: #e0e0e0;
-      font-weight: bold;
-    }
+nav a:hover {
+  color: #e0b3ff;
+}
 
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(0, 0, 0, 0.85);
-      display: flex;
-      justify-content: center;
-      padding: 15px 10px;
-      gap: 30px;
-    }
+section {
+  padding: 60px 20px;
+  text-align: center;
+  animation: fadeInUp 1s ease;
+}
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-      font-size: 1.1rem;
-    }
+section h2 {
+  font-size: 2.2rem;
+  color: #ffd6ff;
+  margin-bottom: 20px;
+}
 
-    nav a:hover {
-      color: #FF6347;
-      text-decoration: underline;
-    }
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
 
-    .hero {
-      text-align: center;
-      padding: 100px 20px 60px;
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 20px;
-      animation: fadeInUp 1.5s ease;
-    }
+.image-grid img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s;
+}
 
-    .hero h2 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      color: #FFD700;
-    }
+.image-grid img:hover {
+  transform: scale(1.05);
+}
 
-    .btn-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
+.btn-container {
+  margin-top: 30px;
+}
 
-    .btn {
-      background: #fff;
-      color: #4B0082;
-      padding: 12px 30px;
-      border-radius: 8px;
-      font-weight: bold;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      border: 2px solid #4B0082;
-    }
+.btn {
+  background: #e0b3ff;
+  color: #2c2c54;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
 
-    .btn:hover {
-      background: #4B0082;
-      color: #fff;
-      transform: translateY(-2px);
-    }
+.btn:hover {
+  background: #d6a6f2;
+}
 
-    .section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 60px 20px;
-    }
+footer {
+  background: #2e2e3e;
+  text-align: center;
+  color: #ccc;
+  padding: 20px;
+}
 
-    .section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 30px;
-      text-align: center;
-      color: #FF6347;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
-    }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-    .images {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      justify-items: center;
-    }
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-    .images img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
-      height: auto;
-      transition: transform 0.3s ease;
-    }
-
-    .images img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
-    }
-
-    ul {
-      list-style: square inside;
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: #fff;
-    }
-
-    .contact-box {
-      background: rgba(50, 50, 50, 0.8);
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 20px;
-      color: #fff;
-    }
-
-    iframe {
-      width: 100%;
-      height: 300px;
-      border: none;
-      border-radius: 10px;
-      margin-top: 20px;
-    }
-
-    footer {
-      background-color: #222;
-      text-align: center;
-      padding: 25px;
-      color: #ccc;
-      border-top: 1px solid #444;
-    }
-
-    footer p {
-      font-size: 1.1rem;
-    }
-
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
   </style>
 </head>
 <body>
-  <header data-aos="fade-down">
-    <img src="https://media-cdn.tripadvisor.com/media/photo-s/18/64/7d/6d/maya-devi-temple.jpg" alt="Lumbini Temple">
+  <header>
     <h1>Lumbini Guest House</h1>
-    <p class="owner-name">Owned by <strong>Sheshkant Bhattarai</strong> & <strong>Bishnu Bhattarai</strong></p>
-  </header>
-
-  <nav>
+    <p>Owned by Sheshkant Bhattarai & Bishnu Bhattarai</p>
+  </header>  <nav>
     <a href="#rooms">Rooms</a>
     <a href="#kitchen">Kitchen</a>
     <a href="#facilities">Facilities</a>
     <a href="#contact">Contact</a>
-  </nav>
-
-  <section class="hero" data-aos="fade-up">
-    <h2>Welcome to Lumbini Guest House</h2>
-    <div class="btn-container">
-      <a class="btn" href="https://maps.app.goo.gl/71qtpDWCr3PeSkMz5">View Location</a>
-      <a class="btn" href="tel:+917428671478">Book Now</a>
-    </div>
-  </section>
-
-  <section class="section" id="rooms" data-aos="fade-right">
+  </nav>  <section id="rooms">
     <h2>Our Rooms</h2>
-    <div class="images">
-      <img src="https://images.unsplash.com/photo-1605686694071-d54162db90e0?crop=entropy&cs=tinysrgb&fit=max&ixid=MXwyMDg1MnwwfDF8c2VhY2h8Mnx8Y2hhbGx8ZW58MHx8fHwxNjg1Nzc5NzI&ixlib=rb-1.2.1&q=80&w=1080" alt="Room with Double Bed">
-      <img src="https://images.unsplash.com/photo-1613207815380-37c25a170d6a?crop=entropy&cs=tinysrgb&fit=max&ixid=MXwyMDg1MnwwfDF8c2VhY2h8Mnx8b3BldnxlbnwxfHx8fHwxNjg1Nzg0MDQ&ixlib=rb-1.2.1&q=80&w=1080" alt="Cozy Bathroom">
+    <div class="image-grid">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Cozy Room" />
+      <img src="https://images.unsplash.com/photo-1560067174-89446c0f0676" alt="Room Interior" />
     </div>
-  </section>
-
-  <section class="section" id="kitchen" data-aos="fade-left">
+  </section>  <section id="kitchen">
     <h2>Our Kitchen</h2>
-    <p>We serve fresh and healthy home-style meals with both vegetarian and non-vegetarian options. Our kitchen is designed to ensure cleanliness and the best food quality.</p>
-    <div class="images">
-      <img src="https://images.unsplash.com/photo-1593642532900-bd6bb2a6a2fa?crop=entropy&cs=tinysrgb&fit=max&ixid=MXwyMDg1MnwwfDF8c2VhY2h8Mnx8Y2FyaXx8ZW58MHx8fHwxNjg1Nzg0MDQ&ixlib=rb-1.2.1&q=80&w=1080" alt="Fresh Ingredients">
-      <img src="https://images.unsplash.com/photo-1603052876069-79e6c4100b8f?crop=entropy&cs=tinysrgb&fit=max&ixid=MXwyMDg1MnwwfDF8c2VhY2h8Mnx8Y2FyaXxlbnwxfHx8fHwxNjg1Nzg0MDE&ixlib=rb-1.2.1&q=80&w=1080" alt="Cooking in Progress">
+    <p>Enjoy delicious, home-style meals prepared in a clean and well-equipped kitchen. Our chefs focus on hygiene and taste, providing both veg and non-veg options with love.</p>
+    <div class="image-grid">
+      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="Kitchen Area" />
+      <img src="https://images.unsplash.com/photo-1521302080377-4c905fabaa4e" alt="Food Served" />
     </div>
-  </section>
-
-  <section class="section" id="facilities" data-aos="zoom-in">
+  </section>  <section id="facilities">
     <h2>Facilities</h2>
-    <ul>
-      <li>24-hour Support</li>
-      <li>Comfortable Rooms</li>
-      <li>Healthy Home-Cooked Meals</li>
-      <li>Non-Vegetarian Options</li>
-      <li>Free Wi-Fi</li>
+    <ul style="text-align: left; max-width: 600px; margin: auto; list-style: none; line-height: 1.8;">
+      <li>- 24-hour support</li>
+      <li>- Free Wi-Fi</li>
+      <li>- Taxi service (6:30 AM - 10:30 PM)</li>
+      <li>- Room service and attached bathrooms</li>
+      <li>- Healthy homemade food (veg & non-veg)</li>
+      <li>- Double bed, AC/Heating, TV, window view</li>
+      <li>- No pets allowed</li>
     </ul>
-  </section>
-
-  <section class="section" id="contact" data-aos="fade-up">
+  </section>  <section id="contact">
     <h2>Contact Us</h2>
-    <div class="contact-box">
-      <p><strong>Phone:</strong> +91 74286 71478</p>
-      <p><strong>Email:</strong> info@lumbini.com</p>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.660667304895!2d77.10871631544785!3d28.45937319986816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d2323d57d52b9%3A0xd3e99db30be28de0!2sSector%2038%2C%20Gurugram%2C%20Haryana%20122001%2C%20India!5e0!3m2!1sen!2sus!4v1672344327222!5m2!1sen!2sus"></iframe>
+    <p>Call us at <a href="tel:+917428671478" style="color: #ffd6ff; text-decoration: underline;">+91 74286 71478</a></p>
+    <p>Located in Islampur Sector 38, Gurugram</p>
+    <div class="btn-container">
+      <a class="btn" href="https://maps.app.goo.gl/71qtpDWCr3PeSkMz5" target="_blank">View on Map</a>
     </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Lumbini Guest House. All Rights Reserved.</p>
+  </section>  <footer>
+    <p>&copy; 2025 Lumbini Guest House. All rights reserved.</p>
   </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
 </body>
 </html>
