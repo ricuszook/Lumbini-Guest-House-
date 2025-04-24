@@ -4,8 +4,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lumbini Guest House</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.min.css" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -26,14 +24,6 @@
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.6s ease;
-}
-
-.left-side.show, .right-side.show {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 h1, h2 {
@@ -56,11 +46,6 @@ p, li, input, textarea {
 
 .lang-toggle:hover, button:hover {
   background-color: #9a4dff;
-}
-
-.slider img {
-  width: 100%;
-  border-radius: 10px;
 }
 
 ul {
@@ -105,11 +90,6 @@ iframe {
       <h1>Lumbini Guest House</h1>
       <p>Islampur Village, Sector 38, Gurugram</p>
       <button class="lang-toggle">नेपाली / Hindi</button>
-      <div class="slider">
-        <div><img src="room.jpg" alt="Room"></div>
-        <div><img src="food.jpg" alt="Food"></div>
-        <div><img src="room2.jpg" alt="Room 2"></div>
-      </div>
     </div>
     <div class="right-side">
       <div class="facility">
@@ -144,31 +124,18 @@ iframe {
       </div>
     </div>
   </div>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <script>
-    $(document).ready(function () {
-      $('.slider').slick({
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        autoplay: true,
-        autoplaySpeed: 3000
-      });
-    });function addComment() {
-  const comment = document.getElementById("comment").value;
-  if (comment.trim()) {
-    const commentList = document.getElementById("review-list");
-    const newComment = document.createElement("div");
-    newComment.classList.add("comment");
-    newComment.textContent = comment;
-    commentList.appendChild(newComment);
-    document.getElementById("comment").value = "";
-  }
-}
-
-function sendBookingToWhatsApp() {
+    function addComment() {
+      const comment = document.getElementById("comment").value;
+      if (comment.trim()) {
+        const commentList = document.getElementById("review-list");
+        const newComment = document.createElement("div");
+        newComment.classList.add("comment");
+        newComment.textContent = comment;
+        commentList.appendChild(newComment);
+        document.getElementById("comment").value = "";
+      }
+    }function sendBookingToWhatsApp() {
   const name = document.getElementById("name").value;
   const date = document.getElementById("date").value;
   if (name && date) {
@@ -179,21 +146,6 @@ function sendBookingToWhatsApp() {
     alert("Please enter your name and booking date.");
   }
 }
-
-// Animation on scroll
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    }
-  });
-}, {
-  threshold: 0.1
-});
-
-document.querySelectorAll('.left-side, .right-side').forEach(section => {
-  observer.observe(section);
-});
 
   </script>
 </body>
