@@ -1,78 +1,124 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lumbini Guest House</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/css/glightbox.min.css">
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     .fade-in {
-      animation: fadeIn 1s ease-in-out;
+      animation: fadeIn 1s ease-out forwards;
+      opacity: 0;
     }
-
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-
     .hover-scale:hover {
-      transform: scale(1.03);
-      transition: all 0.3s ease-in-out;
+      transform: scale(1.05);
+      transition: 0.3s ease-in-out;
+    }
+    .scroll-indicator {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: #a855f7;
+      z-index: 50;
+      width: 0;
+    }
+    .book-now-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #a855f7;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 9999px;
+      font-weight: bold;
+      box-shadow: 0 5px 15px rgba(168, 85, 247, 0.4);
+      transition: transform 0.2s ease-in-out;
+      z-index: 40;
+    }
+    .book-now-btn:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
-<body class="bg-purple-50 text-gray-800">
+<body class="bg-gray-900 text-white font-sans">  <div class="scroll-indicator" id="scrollIndicator"></div>  <div class="flex flex-col md:flex-row min-h-screen">
+    <!-- Left Section -->
+    <div class="md:w-1/2 p-6 md:sticky md:top-0 md:h-screen overflow-y-auto bg-gray-800 shadow-lg">
+      <div class="flex items-center space-x-4 mb-6">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Lumbini_logo.png" alt="Lumbini Logo" class="w-12 h-12">
+        <h1 class="text-3xl font-bold text-purple-400">Lumbini Guest House</h1>
+      </div><h2 class="text-xl mb-2 text-purple-300">Our Rooms</h2>
+  <div class="grid gap-4 mb-6">
+    <a href="https://via.placeholder.com/1200x800?text=Bedroom" class="glightbox" data-gallery="rooms"><img src="https://via.placeholder.com/400x250?text=Bedroom" class="rounded hover-scale" alt="Room"></a>
+    <a href="https://via.placeholder.com/1200x800?text=Kitchen" class="glightbox" data-gallery="rooms"><img src="https://via.placeholder.com/400x250?text=Kitchen" class="rounded hover-scale" alt="Kitchen"></a>
+    <a href="https://via.placeholder.com/1200x800?text=Bathroom" class="glightbox" data-gallery="rooms"><img src="https://via.placeholder.com/400x250?text=Bathroom" class="rounded hover-scale" alt="Bathroom"></a>
+  </div>
 
-  <header class="bg-purple-700 text-white py-10 text-center shadow-lg fade-in">
-    <h1 class="text-4xl font-bold">Welcome to Lumbini Guest House</h1>
-    <p class="mt-2">Your comfort, our priority</p>
-  </header>
+  <h2 class="text-xl mb-2 text-purple-300">Food</h2>
+  <div class="grid gap-4">
+    <a href="https://via.placeholder.com/1200x800?text=Healthy+Food" class="glightbox" data-gallery="food"><img src="https://via.placeholder.com/400x250?text=Healthy+Food" class="rounded hover-scale" alt="Food"></a>
+    <a href="https://via.placeholder.com/1200x800?text=Non-Veg+Meal" class="glightbox" data-gallery="food"><img src="https://via.placeholder.com/400x250?text=Non-Veg+Meal" class="rounded hover-scale" alt="Food"></a>
+  </div>
+</div>
 
-  <section class="p-6 text-center">
-    <h2 class="text-2xl font-bold text-purple-700 mb-4">Why Choose Us?</h2>
-    <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-      <div class="bg-white rounded-xl p-4 shadow hover-scale">24/7 Support</div>
-      <div class="bg-white rounded-xl p-4 shadow hover-scale">High-Speed Wi-Fi</div>
-      <div class="bg-white rounded-xl p-4 shadow hover-scale">Homemade Healthy Food</div>
-      <div class="bg-white rounded-xl p-4 shadow hover-scale">Non-Vegetarian Options</div>
-      <div class="bg-white rounded-xl p-4 shadow hover-scale">Air-Conditioned Rooms</div>
-      <div class="bg-white rounded-xl p-4 shadow hover-scale">Daily Housekeeping</div>
-      <div class="bg-white rounded-xl p-4 shadow hover-scale">Private Bathrooms</div>
-      <div class="bg-white rounded-xl p-4 shadow hover-scale">Fully Equipped Kitchen</div>
-      <div class="bg-white rounded-xl p-4 shadow hover-scale">Ample Parking Space</div>
-      <div class="bg-white rounded-xl p-4 shadow hover-scale">Smart TV</div>
-      <div class="bg-white rounded-xl p-4 shadow hover-scale">Tea/Coffee Facility</div>
-      <div class="bg-white rounded-xl p-4 shadow hover-scale">Power Backup</div>
+<!-- Right Section -->
+<div class="md:w-1/2 p-6 space-y-8">
+  <section class="fade-in">
+    <h2 class="text-2xl text-purple-400 font-bold mb-4">Facilities</h2>
+    <div class="grid grid-cols-2 gap-4">
+      <div><i class="fa-solid fa-wifi"></i> Free Wi-Fi</div>
+      <div><i class="fa-solid fa-mug-hot"></i> Homemade Meals</div>
+      <div><i class="fa-solid fa-tv"></i> Smart TV</div>
+      <div><i class="fa-solid fa-wind"></i> Air Conditioning</div>
+      <div><i class="fa-solid fa-bath"></i> Private Bathroom</div>
+      <div><i class="fa-solid fa-car"></i> Parking Available</div>
+      <div><i class="fa-solid fa-shield"></i> 24/7 Security</div>
+      <div><i class="fa-solid fa-bolt"></i> Power Backup</div>
+      <div><i class="fa-solid fa-utensils"></i> Non-Veg Options</div>
+      <div><i class="fa-solid fa-broom"></i> Daily Housekeeping</div>
+      <div><i class="fa-solid fa-paw"></i> Pets Not Allowed</div>
+      <div><i class="fa-solid fa-taxi"></i> Taxi Service (6:30 AM to 10:30 PM)</div>
     </div>
   </section>
 
-  <section class="p-6 bg-white mt-6">
-    <h2 class="text-2xl font-bold text-purple-700 mb-4 text-center">Gallery</h2>
-    <div class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-      <img src="https://via.placeholder.com/400x250?text=Bedroom" class="rounded-xl shadow hover-scale" alt="Room" />
-      <img src="https://via.placeholder.com/400x250?text=Kitchen" class="rounded-xl shadow hover-scale" alt="Kitchen" />
-      <img src="https://via.placeholder.com/400x250?text=Bathroom" class="rounded-xl shadow hover-scale" alt="Bathroom" />
-    </div>
+  <section class="fade-in">
+    <h2 class="text-2xl text-purple-400 font-bold mb-2">Location</h2>
+    <p class="mb-2">Islampur, Sector 38, Gurugram (Behind Medanta Hospital)</p>
+    <a href="https://www.google.com/maps/place/Medanta+-+The+Medicity/@28.5921402,77.0507093,17z" target="_blank" class="text-purple-300 underline">View on Google Maps</a>
   </section>
 
-  <section class="p-6 bg-purple-100 mt-6 text-center rounded-xl shadow-lg mx-4 md:mx-20">
-    <h2 class="text-2xl font-bold text-purple-800 mb-2">Book Your Stay</h2>
-    <p class="mb-2">Call us at <a href="tel:+917428671478" class="text-purple-700 font-bold underline">+91 74286 71478</a></p>
-    <p>Location: Islampur Village, Sector 38, Gurugram, Haryana (Behind Medanta Hospital)</p>
+  <section class="fade-in">
+    <h2 class="text-2xl text-purple-400 font-bold mb-2">Book Your Stay</h2>
+    <p>Call us: <a href="tel:+917428671478" class="text-purple-300 underline">+91 74286 71478</a></p>
   </section>
 
-  <section class="p-6 mt-6">
-    <h2 class="text-2xl font-bold text-purple-700 mb-4 text-center">Find Us on Google Maps</h2>
-    <iframe class="w-full h-96 rounded-xl shadow"
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.1701505674365!2d77.0485205751749!3d28.592140175683522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d18b1a8c05a3d%3A0x3e0570fbd17a93b4!2sMedanta%20-%20The%20Medicity!5e0!3m2!1sen!2sin!4v1713891819725!5m2!1sen!2sin"
-      allowfullscreen="" loading="lazy"></iframe>
+  <section class="fade-in">
+    <h2 class="text-2xl text-purple-400 font-bold mb-2">Owners</h2>
+    <p>Sheshkant Bhattarai & Bishnu Bhattarai</p>
   </section>
+</div>
 
-  <footer class="bg-purple-700 text-white p-6 text-center mt-6">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Lumbini_logo.png" alt="Lumbini Logo" class="mx-auto mb-2 w-20">
-    <p>&copy; 2025 Lumbini Guest House</p>
-    <p>Owned by Sheshkant Bhattarai & Bishnu Bhattarai</p>
-  </footer>
+  </div><a href="tel:+917428671478" class="book-now-btn">Book Now</a>
 
-</body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/js/glightbox.min.js"></script>  <script>
+    const lightbox = GLightbox({ selector: '.glightbox' });
+
+    window.addEventListener('scroll', () => {
+      const scrollIndicator = document.getElementById('scrollIndicator');
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      scrollIndicator.style.width = scrollPercent + '%';
+    });
+  </script></body>
 </html>
