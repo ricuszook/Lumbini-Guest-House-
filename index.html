@@ -10,37 +10,31 @@
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: 'Segoe UI', sans-serif;
       background-color: #121212;
       color: #fff;
     }
-
     header {
       background-color: #4B0082;
       padding: 40px 20px;
       text-align: center;
       animation: fadeInDown 1s ease;
     }
-
     header img {
       width: 60px;
       margin-bottom: 10px;
     }
-
     header h1 {
-      font-size: 2rem;
-      font-family: Algerian, serif;
+      font-family: 'Algerian', serif;
+      font-size: 2.5rem;
     }
-
     .owner-name {
       font-size: 1rem;
-      margin-top: 10px;
-      font-style: italic;
+      font-weight: bold;
+      margin-top: 5px;
       color: #ccc;
     }
-
     nav {
       background-color: #222;
       padding: 10px 20px;
@@ -49,20 +43,17 @@
       gap: 20px;
       flex-wrap: wrap;
     }
-
     nav a {
       color: #fff;
       text-decoration: none;
       font-weight: 500;
     }
-
     .hero {
       background: linear-gradient(135deg, #6A0DAD, #4B0082);
       text-align: center;
       padding: 60px 20px;
       animation: fadeInUp 1.2s ease;
     }
-
     .welcome-container {
       display: flex;
       align-items: center;
@@ -70,19 +61,16 @@
       flex-wrap: wrap;
       gap: 15px;
     }
-
     .namaste-img {
       width: 60px;
       animation: wave 2s infinite ease-in-out;
     }
-
     .hero h2 {
       font-size: 2.2rem;
       font-family: 'Segoe UI', sans-serif;
       animation: glow 2s infinite alternate;
       margin: 0;
     }
-
     .btn-container {
       display: flex;
       justify-content: center;
@@ -90,7 +78,6 @@
       flex-wrap: wrap;
       margin-top: 20px;
     }
-
     .btn {
       background: #fff;
       color: #4B0082;
@@ -100,66 +87,61 @@
       text-decoration: none;
       transition: all 0.3s ease;
     }
-
     .btn:hover {
       background: #ddd;
     }
-
     .section {
       padding: 40px 20px;
       max-width: 1200px;
       margin: auto;
     }
-
     .section h2 {
       font-size: 1.8rem;
       margin-bottom: 20px;
     }
-
     .images {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
       justify-content: center;
     }
-
     .images img {
       width: 100%;
       max-width: 300px;
       border-radius: 10px;
     }
-
     .contact-box {
       background: #333;
       padding: 20px;
       border-radius: 10px;
       margin-top: 20px;
     }
-
     iframe {
       width: 100%;
       height: 300px;
       border-radius: 10px;
       margin-top: 20px;
     }
-
     footer {
       background: #1a1a1a;
       color: #ccc;
       text-align: center;
       padding: 20px;
     }
-
     @keyframes fadeInDown {
       from { opacity: 0; transform: translateY(-30px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
+    @keyframes wave {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(8deg); }
+      50% { transform: rotate(-8deg); }
+      75% { transform: rotate(6deg); }
+    }
     @keyframes glow {
       from {
         text-shadow: 0 0 8px #fff, 0 0 12px #6A0DAD, 0 0 20px #4B0082;
@@ -168,21 +150,13 @@
         text-shadow: 0 0 14px #fff, 0 0 24px #6A0DAD, 0 0 34px #4B0082;
       }
     }
-
-    @keyframes wave {
-      0%, 100% { transform: rotate(0deg); }
-      25% { transform: rotate(8deg); }
-      50% { transform: rotate(-8deg); }
-      75% { transform: rotate(6deg); }
-    }
   </style>
 </head>
 <body>
-
   <header>
     <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Lumbini_Logo.svg" alt="Lumbini Logo">
     <h1>Lumbini Guest House</h1>
-    <div class="owner-name">Owned by Sheshkant Bhattarai & Bishnu Bhattarai</div>
+    <p class="owner-name">Owned by Sheshkant Bhattarai & Bishnu Bhattarai</p>
   </header>
 
   <nav>
@@ -194,9 +168,9 @@
 
   <div class="hero">
     <div class="welcome-container">
-      <img src="https://i.imgur.com/Ud1Z6bR.png" alt="Namaste Hands" class="namaste-img">
+      <img src="https://images.unsplash.com/photo-1617692851417-d84c2ef1d92e?auto=format&fit=crop&w=100&q=80" alt="Namaste Hands" class="namaste-img">
       <h2>Welcome to Lumbini Guest House</h2>
-      <img src="https://i.imgur.com/Ud1Z6bR.png" alt="Namaste Hands" class="namaste-img">
+      <img src="https://images.unsplash.com/photo-1617692851417-d84c2ef1d92e?auto=format&fit=crop&w=100&q=80" alt="Namaste Hands" class="namaste-img">
     </div>
     <div class="btn-container">
       <a class="btn" href="https://maps.app.goo.gl/71qtpDWCr3PeSkMz5">View Location</a>
@@ -247,6 +221,5 @@
     <p>Lumbini Guest House, Islampur Sector 38, Gurugram</p>
     <p>&copy; 2025 All rights reserved.</p>
   </footer>
-
 </body>
 </html>
