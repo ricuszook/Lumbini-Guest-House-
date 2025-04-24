@@ -4,145 +4,184 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lumbini Guest House</title>
-    <!-- Including Slick Carousel CSS -->
+    <!-- Slick Carousel CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.min.css" rel="stylesheet">
+    
     <style>
         /* General Body and Layout */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #1a1a1a;
+            background: linear-gradient(45deg, #5e3e92, #9b4dca);
             color: white;
         }
 
+        /* Container Layout */
         .container {
             display: flex;
-            min-height: 100vh;
             flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
-        /* Left Side Styles */
+        /* Left Side: Image Slider and Info */
         .left-side {
             width: 50%;
             padding: 20px;
-            background-color: #5e3e92;
+            background-color: #8c4b9d;
             text-align: center;
-            flex: 1;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .left-side h1 {
-            font-size: 36px;
+            font-size: 48px;
+            font-weight: bold;
             margin-bottom: 10px;
+            text-transform: uppercase;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
         }
 
         .left-side p {
-            font-size: 18px;
+            font-size: 20px;
             margin-bottom: 20px;
         }
 
         .lang-toggle {
-            background-color: #fff;
+            padding: 12px 25px;
+            background-color: #FFD700;
             color: #5e3e92;
-            padding: 10px 20px;
             border: none;
+            border-radius: 5px;
             cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
         }
 
         .lang-toggle:hover {
-            background-color: #5e3e92;
-            color: white;
+            background-color: #ffb700;
         }
 
         .slider {
             margin-top: 30px;
+            border-radius: 15px;
+            overflow: hidden;
         }
 
         .slider img {
             width: 100%;
             height: auto;
-            border-radius: 10px;
+            transition: transform 0.5s ease;
         }
 
-        /* Right Side Styles */
+        .slider img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Right Side: Services, Reviews, and Booking */
         .right-side {
-            width: 50%;
+            width: 45%;
             padding: 20px;
-            flex: 1;
+            background-color: #7a3a8d;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .right-side h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            text-align: center;
         }
 
         .facility, .booking-form, .contact, .reviews, .location {
-            background-color: #333;
+            background-color: rgba(255, 255, 255, 0.1);
             padding: 20px;
             margin-bottom: 20px;
             border-radius: 10px;
-        }
-
-        h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         ul {
-            list-style: disc;
-            padding-left: 20px;
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            font-size: 18px;
+            margin-bottom: 10px;
         }
 
         input, textarea {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin-bottom: 10px;
-            background-color: #444;
+            background-color: #6f3f78;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
         }
 
         button {
-            padding: 10px 20px;
-            background-color: #5e3e92;
+            padding: 12px 25px;
+            background-color: #FFD700;
+            color: #5e3e92;
             border: none;
-            color: white;
-            cursor: pointer;
             border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
         }
 
         button:hover {
-            background-color: #43257c;
+            background-color: #ffb700;
         }
 
         .reviews .comment {
-            background-color: #444;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
+            background-color: #6f3f78;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         iframe {
             border-radius: 10px;
+            border: 0;
         }
 
-        textarea {
-            height: 100px;
+        /* Animation for the background */
+        @keyframes backgroundAnimation {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
+
+        /* Adding smooth animation to background */
+        body {
+            background-size: 200% 200%;
+            animation: backgroundAnimation 10s ease infinite;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
+                align-items: center;
             }
 
             .left-side, .right-side {
-                width: 100%;
+                width: 90%;
+                margin: 20px 0;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Left Side: Gallery and Info -->
+        <!-- Left Side: Info and Image Slider -->
         <div class="left-side">
             <h1>Lumbini Guest House</h1>
             <p>Islampur Village, Sector 38, Gurugram</p>
@@ -155,8 +194,8 @@
                 <div><img src="room2.jpg" alt="Room 2"></div>
             </div>
         </div>
-        
-        <!-- Right Side: Facilities, Reviews, etc. -->
+
+        <!-- Right Side: Booking, Services, Reviews -->
         <div class="right-side">
             <div class="facility">
                 <h2>Facilities</h2>
@@ -178,13 +217,13 @@
                 <button>Book Now</button>
             </div>
             
-            <!-- Contact Info -->
+            <!-- Contact -->
             <div class="contact">
                 <h2>Contact Us</h2>
-                <p><i class="fas fa-phone-alt"></i> <a href="tel:+917428671478">+91 74286 71478</a></p>
+                <p><i class="fas fa-phone-alt"></i> <a href="tel:+917428671478" style="color: #FFD700;">+91 74286 71478</a></p>
             </div>
             
-            <!-- Customer Reviews -->
+            <!-- Reviews -->
             <div class="reviews">
                 <h2>Customer Reviews</h2>
                 <div id="review-list"></div>
@@ -195,18 +234,17 @@
             <!-- Location -->
             <div class="location">
                 <h2>Find Us</h2>
-                <p>Islampur Village, Sector 38, Gurugram</p>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.041856358577!2d77.04265277518335!3d28.62913807567206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19b8592fcfa5%3A0xf3d79ae0cfbe6dc0!2sIslampur%2C%20Sector%2038%2C%20Gurugram!5e0!3m2!1sen!2sin!4v1713954140743!5m2!1sen!2sin" width="100%" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.041856358577!2d77.04265277518335!3d28.62913807567206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19b8592fcfa5%3A0xf3d79ae0cfbe6dc0!2sIslampur%2C%20Sector%2038%2C%20Gurugram!5e0!3m2!1sen!2sin!4v1713954140743!5m2!1sen!2sin" width="100%" height="200"></iframe>
             </div>
         </div>
     </div>
-    
-    <!-- Including jQuery and Slick Carousel JS -->
+
+    <!-- JQuery and Slick Carousel Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     
     <script>
-        // Slick Slider Initialization
+        // Initialize Slick Slider
         $(document).ready(function(){
             $('.slider').slick({
                 dots: true,
