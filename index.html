@@ -1,172 +1,232 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lumbini Guest House</title>
     <style>
-        /* Basic reset for margin and padding */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
+        }body {
+        font-family: 'Arial', sans-serif;
+        background-color: #121212;
+        color: #fff;
+        padding: 0;
+        margin: 0;
+        overflow-x: hidden;
+        transition: all 0.3s ease;
+    }
 
-        /* Body Styles */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #fff;
-            margin: 0;
-            padding: 0;
-        }
+    header {
+        background-color: #4B0082;
+        padding: 60px 20px;
+        text-align: center;
+        animation: welcome 1s ease-in-out;
+        position: relative;
+    }
 
-        /* Header Styles */
-        header {
-            background-color: #4B0082; /* Purple background */
-            text-align: center;
-            padding: 50px;
-            animation: fadeIn 1s ease-in-out;
-        }
+    header h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
 
-        header h1 {
-            font-size: 2.5rem;
-            margin: 0;
-        }
+    header img {
+        width: 100px;
+        height: auto;
+        margin-bottom: 20px;
+    }
 
-        header img {
-            width: 80px;
-            height: auto;
-        }
+    nav {
+        background-color: #333;
+        text-align: center;
+        padding: 15px;
+    }
 
-        /* Section Styles */
-        section {
-            padding: 40px;
-            text-align: center;
-            margin-bottom: 40px;
-        }
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 1.2rem;
+        transition: all 0.3s;
+    }
 
-        /* Pop-In Animation for Facilities Section */
-        @keyframes popIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.5);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
+    nav a:hover {
+        color: #4B0082;
+        transform: scale(1.1);
+    }
 
-        #facilities {
-            animation: popIn 1.5s ease-out;
-        }
+    .container {
+        display: flex;
+        justify-content: space-between;
+        margin: 40px auto;
+        padding: 0 20px;
+        max-width: 1200px;
+        gap: 20px;
+    }
 
-        /* Wave Animation for Location Section */
-        @keyframes wave {
-            0% { transform: rotate(0deg); }
-            50% { transform: rotate(10deg); }
-            100% { transform: rotate(0deg); }
-        }
+    .left {
+        width: 48%;
+    }
 
-        #location {
-            animation: wave 2s ease-in-out infinite;
-        }
+    .left img {
+        width: 100%;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+    }
 
-        /* Image Styles */
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
+    .left img:hover {
+        transform: scale(1.05);
+    }
 
-        /* Google Map Iframe Styling */
-        iframe {
-            width: 100%;
-            height: 400px;
-            border: none;
-        }
+    .right {
+        width: 48%;
+    }
 
-        /* Footer Styles */
-        footer {
-            background-color: #4B0082;
-            text-align: center;
-            padding: 20px;
-            font-size: 1rem;
+    section {
+        margin-bottom: 40px;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    .contact-location-box {
+        background-color: #3a3a3a;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 40px;
+        transition: all 0.3s ease;
+    }
+
+    .contact-location-box:hover {
+        background-color: #4B0082;
+    }
+
+    .contact-location-box h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .contact-location-box p {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+    }
+
+    iframe {
+        width: 100%;
+        height: 400px;
+        border: none;
+        border-radius: 10px;
+    }
+
+    footer {
+        background-color: #4B0082;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+    }
+
+    footer p {
+        margin: 10px 0;
+    }
+
+    @keyframes welcome {
+        0% {
+            opacity: 0;
+            transform: translateY(-100px);
         }
-    </style>
+        50% {
+            opacity: 1;
+            transform: translateY(10px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes popIn {
+        0% {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    #facilities {
+        animation: popIn 1.5s ease-out;
+    }
+</style>
+
 </head>
-<body>
-    <!-- Header Section -->
-    <header>
-        <h1>Welcome to Lumbini Guest House</h1>
-        <img src="lumbini-logo.png" alt="Lumbini Temple Logo">
-    </header>
+<body><header>
+    <h1>Welcome to Lumbini Guest House</h1>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Lumbini_Logo.svg" alt="Lumbini Temple Logo">
+</header>
 
-    <!-- Rooms Section -->
-    <section id="rooms">
-        <h2>Our Rooms</h2>
-        <div class="room-images">
+<nav>
+    <a href="#rooms">Rooms</a>
+    <a href="#facilities">Facilities</a>
+    <a href="#location">Location</a>
+</nav>
+
+<div class="container">
+    <div class="left">
+        <section id="rooms">
+            <h2>Our Rooms</h2>
             <img src="room-image.jpg" alt="Cozy guest room with double bed, TV, and window">
-            <p>Our rooms are designed to offer comfort and relaxation, featuring a double bed, TV, and attached bathroom.</p>
-        </div>
-    </section>
+            <p>Comfortable rooms with double beds, attached bathrooms, and TV for relaxation.</p>
+        </section>
 
-    <!-- Kitchen Section -->
-    <section id="kitchen">
-        <h2>Our Kitchen</h2>
-        <div class="kitchen-images">
-            <img src="kitchen-image.jpg" alt="Clean and functional kitchen with basic appliances">
-            <p>We offer a clean and practical kitchen equipped with everything you need to cook your meals comfortably.</p>
-        </div>
-    </section>
+        <section id="kitchen">
+            <h2>Our Kitchen</h2>
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="Middle-class guest house kitchen" />
+            <p>A clean and well-equipped kitchen for guests to prepare meals with all the basic necessities.</p>
+        </section>
 
-    <!-- Bathroom Section -->
-    <section id="bathroom">
-        <h2>Our Bathroom</h2>
-        <div class="bathroom-images">
-            <img src="bathroom-image.jpg" alt="Well-maintained guest house bathroom with shower">
-            <p>The bathroom is clean, functional, and well-maintained with modern fixtures.</p>
-        </div>
-    </section>
+        <section id="food">
+            <h2>Delicious Food</h2>
+            <img src="food-image.jpg" alt="Healthy and delicious food served at Lumbini Guest House">
+            <p>Enjoy healthy, home-cooked meals including vegetarian and non-vegetarian dishes.</p>
+        </section>
+    </div>
 
-    <!-- Food Section -->
-    <section id="food">
-        <h2>Our Delicious Food</h2>
-        <div class="food-images">
-            <img src="food-image.jpg" alt="Delicious food served at Lumbini Guest House">
-            <p>Enjoy our healthy and tasty homemade food. We offer a variety of dishes including vegetarian and non-vegetarian options.</p>
-        </div>
-    </section>
+    <div class="right">
+        <section id="facilities">
+            <h2>Our Facilities</h2>
+            <ul>
+                <li>24-hour support</li>
+                <li>Taxi service from 6:30 AM to 10:30 PM</li>
+                <li>Free Wi-Fi</li>
+                <li>Complimentary breakfast</li>
+                <li>Comfortable seating area</li>
+                <li>Parking available</li>
+                <li>Room service</li>
+                <li>Heating & Cooling systems</li>
+                <li>Healthy food options</li>
+                <li>Non-vegetarian and vegetarian meals</li>
+            </ul>
+        </section>
 
-    <!-- Facilities Section with Pop-In Animation -->
-    <section id="facilities">
-        <h2>Our Facilities</h2>
-        <ul>
-            <li>24-hour support</li>
-            <li>Taxi service from 6:30 AM to 10:30 PM</li>
-            <li>Free Wi-Fi</li>
-            <li>Comfortable seating area</li>
-            <li>Clean and safe environment</li>
-            <li>Parking available</li>
-            <li>Complimentary breakfast</li>
-            <li>Room service</li>
-            <li>Heating and cooling systems</li>
-            <li>And more...</li>
-        </ul>
-    </section>
-
-    <!-- Location Section with Wave Animation -->
-    <section id="location">
-        <h2>Find Us on Google Maps</h2>
-        <div class="google-map">
+        <section id="location" class="contact-location-box">
+            <h3>Find Us on Google Maps</h3>
             <iframe src="https://maps.google.com/maps?q=Islampur%20Sector%2038%20Gurugram&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
-        </div>
-    </section>
+            <p><strong>Contact Us:</strong></p>
+            <p>Phone: +91 74286 71478</p>
+            <p>Owner: Sheshkant Bhattarai & Bishnu Bhattarai</p>
+        </section>
+    </div>
+</div>
 
-    <footer>
-        <p>Contact: +91 74286 71478</p>
-        <p>Owner: Sheshkant Bhattarai & Bishnu Bhattarai</p>
-    </footer>
+<footer>
+    <p>Contact: +91 74286 71478</p>
+    <p>Owner: Sheshkant Bhattarai & Bishnu Bhattarai</p>
+</footer>
+
 </body>
 </html>
