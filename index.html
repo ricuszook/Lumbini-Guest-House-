@@ -1,293 +1,200 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumbini Guest House</title>
-    <!-- Slick Carousel CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.min.css" rel="stylesheet">
-    
-    <style>
-        /* General Body and Layout */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #f3e5f5, #e1bee7);
-            color: #4a148c;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumbini Guest House</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.min.css" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111;
+      color: #eee;
+    }.container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: space-between;
+}
 
-        /* Container Layout */
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            padding: 20px;
-            box-sizing: border-box;
-        }
+.left-side, .right-side {
+  width: 48%;
+  margin: 1%;
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease;
+}
 
-        /* Left Side: Image Slider and Info */
-        .left-side {
-            width: 50%;
-            padding: 20px;
-            background-color: #e8eaf6;
-            text-align: center;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
+.left-side.show, .right-side.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-        .left-side h1 {
-            font-size: 48px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #6a1b9a;
-            text-transform: uppercase;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
+h1, h2 {
+  color: #c77dff;
+}
 
-        .left-side p {
-            font-size: 20px;
-            margin-bottom: 20px;
-            color: #7b1fa2;
-        }
+p, li, input, textarea {
+  color: #ddd;
+}
 
-        .lang-toggle {
-            padding: 12px 25px;
-            background-color: #ba68c8;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
+.lang-toggle, button {
+  background-color: #6a0dad;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
 
-        .lang-toggle:hover {
-            background-color: #9c4dcc;
-        }
+.lang-toggle:hover, button:hover {
+  background-color: #9a4dff;
+}
 
-        .slider {
-            margin-top: 30px;
-            border-radius: 15px;
-            overflow: hidden;
-        }
+.slider img {
+  width: 100%;
+  border-radius: 10px;
+}
 
-        .slider img {
-            width: 100%;
-            height: auto;
-            transition: transform 0.5s ease;
-        }
+ul {
+  padding-left: 20px;
+}
 
-        .slider img:hover {
-            transform: scale(1.05);
-        }
+input, textarea {
+  width: 100%;
+  background: #2a2a2a;
+  border: 1px solid #6a0dad;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
 
-        /* Right Side: Services, Reviews, and Booking */
-        .right-side {
-            width: 45%;
-            padding: 20px;
-            background-color: #f3e5f5;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
+iframe {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+}
 
-        .right-side h2 {
-            font-size: 28px;
-            margin-bottom: 15px;
-            text-align: center;
-            color: #6a1b9a;
-        }
+.comment {
+  background: #2d2d2d;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border-left: 4px solid #6a0dad;
+}
 
-        .facility, .booking-form, .contact, .reviews, .location {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
+@media (max-width: 768px) {
+  .left-side, .right-side {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
 
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        li {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 10px;
-            background-color: #d1c4e9;
-            color: #4a148c;
-            border: none;
-            border-radius: 10px;
-        }
-
-        button {
-            padding: 12px 25px;
-            background-color: #9c4dcc;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #7b1fa2;
-        }
-
-        .reviews .comment {
-            background-color: #ba68c8;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        iframe {
-            border-radius: 10px;
-            border: 0;
-        }
-
-        /* Animation for the background */
-        @keyframes backgroundAnimation {
-            0% { background-position: 0 0; }
-            100% { background-position: 100% 100%; }
-        }
-
-        /* Adding smooth animation to background */
-        body {
-            background-size: 200% 200%;
-            animation: backgroundAnimation 10s ease infinite;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .left-side, .right-side {
-                width: 90%;
-                margin: 20px 0;
-            }
-        }
-    </style>
+  </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Left Side: Info and Image Slider -->
-        <div class="left-side">
-            <h1>Lumbini Guest House</h1>
-            <p>Islampur Village, Sector 38, Gurugram</p>
-            <button class="lang-toggle">नेपाली / Hindi</button>
-            
-            <!-- Image Gallery Slider -->
-            <div class="slider">
-                <div><img src="room.jpg" alt="Room"></div>
-                <div><img src="food.jpg" alt="Food"></div>
-                <div><img src="room2.jpg" alt="Room 2"></div>
-            </div>
-        </div>
-
-        <!-- Right Side: Booking, Services, Reviews -->
-        <div class="right-side">
-            <div class="facility">
-                <h2>Facilities</h2>
-                <ul>
-                    <li>24-hour support</li>
-                    <li>Homemade, healthy food (veg & non-veg)</li>
-                    <li>Comfortable double bed rooms</li>
-                    <li>Attached bathroom and TV</li>
-                    <li>No pets allowed</li>
-                    <li>Taxi service (6:30 AM - 10:30 PM)</li>
-                </ul>
-            </div>
-            
-            <!-- Booking Form -->
-            <div class="booking-form">
-                <h2>Book Now</h2>
-                <input type="text" id="name" placeholder="Full Name">
-                <input type="date" id="date">
-                <button onclick="sendBookingToWhatsApp()">Book Now</button>
-            </div>
-            
-            <!-- Contact -->
-            <div class="contact">
-                <h2>Contact Us</h2>
-                <p><i class="fas fa-phone-alt"></i> <a href="tel:+917428671478" style="color: #9c4dcc;">+91 74286 71478</a></p>
-            </div>
-            
-            <!-- Reviews -->
-            <div class="reviews">
-                <h2>Customer Reviews</h2>
-                <div id="review-list"></div>
-                <textarea id="comment" placeholder="Add a comment"></textarea>
-                <button onclick="addComment()">Add Comment</button>
-            </div>
-            
-            <!-- Location -->
-            <div class="location">
-                <h2>Find Us</h2>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.041856358577!2d77.04265277518335!3d28.62913807567206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19b8592fcfa5%3A0xf3d79ae0cfbe6dc0!2sIslampur%2C%20Sector%2038%2C%20Gurugram!5e0!3m2!1sen!2sin!4v1713954140743!5m2!1sen!2sin" width="100%" height="200"></iframe>
-            </div>
-        </div>
+  <div class="container">
+    <div class="left-side">
+      <h1>Lumbini Guest House</h1>
+      <p>Islampur Village, Sector 38, Gurugram</p>
+      <button class="lang-toggle">नेपाली / Hindi</button>
+      <div class="slider">
+        <div><img src="room.jpg" alt="Room"></div>
+        <div><img src="food.jpg" alt="Food"></div>
+        <div><img src="room2.jpg" alt="Room 2"></div>
+      </div>
     </div>
+    <div class="right-side">
+      <div class="facility">
+        <h2>Facilities</h2>
+        <ul>
+          <li>24-hour support</li>
+          <li>Healthy homemade food (veg & non-veg)</li>
+          <li>Double bed, attached bathroom, TV</li>
+          <li>No pets allowed</li>
+          <li>Taxi service: 6:30 AM to 10:30 PM</li>
+        </ul>
+      </div>
+      <div class="booking-form">
+        <h2>Book Now</h2>
+        <input type="text" id="name" placeholder="Full Name" />
+        <input type="date" id="date" />
+        <button onclick="sendBookingToWhatsApp()">Book Now</button>
+      </div>
+      <div class="contact">
+        <h2>Contact Us</h2>
+        <p><i class="fas fa-phone"></i> <a href="tel:+917428671478" style="color:#c77dff;">+91 74286 71478</a></p>
+      </div>
+      <div class="reviews">
+        <h2>Customer Reviews</h2>
+        <div id="review-list"></div>
+        <textarea id="comment" placeholder="Add a comment"></textarea>
+        <button onclick="addComment()">Add Comment</button>
+      </div>
+      <div class="location">
+        <h2>Find Us</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.041856358577!2d77.04265277518335!3d28.62913807567206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19b8592fcfa5%3A0xf3d79ae0cfbe6dc0!2sIslampur%2C%20Sector%2038%2C%20Gurugram!5e0!3m2!1sen!2sin!4v1713954140743!5m2!1sen!2sin" height="200"></iframe>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.slider').slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        autoplay: true,
+        autoplaySpeed: 3000
+      });
+    });function addComment() {
+  const comment = document.getElementById("comment").value;
+  if (comment.trim()) {
+    const commentList = document.getElementById("review-list");
+    const newComment = document.createElement("div");
+    newComment.classList.add("comment");
+    newComment.textContent = comment;
+    commentList.appendChild(newComment);
+    document.getElementById("comment").value = "";
+  }
+}
 
-    <!-- JQuery and Slick Carousel Scripts -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    
-    <script>
-        // Initialize Slick Slider
-        $(document).ready(function(){
-            $('.slider').slick({
-                dots: true,
-                infinite: true,
-                speed: 500,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 3000
-            });
-        });
+function sendBookingToWhatsApp() {
+  const name = document.getElementById("name").value;
+  const date = document.getElementById("date").value;
+  if (name && date) {
+    const message = `New Booking%0AName: ${name}%0ADate: ${date}`;
+    const phone = "917428671478";
+    window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+  } else {
+    alert("Please enter your name and booking date.");
+  }
+}
 
-        // Function to add a comment
-        function addComment() {
-            var comment = document.getElementById("comment").value;
-            if (comment.trim()) {
-                var commentList = document.getElementById("review-list");
-                var newComment = document.createElement("div");
-                newComment.classList.add("comment");
-                newComment.innerHTML = comment;
-                commentList.appendChild(newComment);
-                document.getElementById("comment").value = ""; // clear textarea
-            }
-        }
+// Animation on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, {
+  threshold: 0.1
+});
 
-        // Function to send booking details to WhatsApp
-        function sendBookingToWhatsApp() {
-            var name = document.getElementById("name").value;
-            var date = document.getElementById("date").value;
-            
-            if (name && date) {
-                var whatsappMessage = `New Booking\n\nName: ${name}\nDate: ${date}`;
-                var phoneNumber = "+917428671478";
-                var whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-                
-                window.open(whatsappLink, "_blank");
-            } else {
-                alert("Please fill in both name and date.");
-            }
-        }
-    </script>
+document.querySelectorAll('.left-side, .right-side').forEach(section => {
+  observer.observe(section);
+});
+
+  </script>
 </body>
 </html>
