@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,86 +11,96 @@
       font-family: 'Segoe UI', sans-serif;
       background-color: #111;
       color: #eee;
-    }.container {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 20px;
-  justify-content: space-between;
-}
-
-.left-side, .right-side {
-  width: 48%;
-  margin: 1%;
-  background: #1a1a1a;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
-}
-
-h1, h2 {
-  color: #c77dff;
-}
-
-p, li, input, textarea {
-  color: #ddd;
-}
-
-.lang-toggle, button {
-  background-color: #6a0dad;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.lang-toggle:hover, button:hover {
-  background-color: #9a4dff;
-}
-
-ul {
-  padding-left: 20px;
-}
-
-input, textarea {
-  width: 100%;
-  background: #2a2a2a;
-  border: 1px solid #6a0dad;
-  border-radius: 8px;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-iframe {
-  width: 100%;
-  border: none;
-  border-radius: 10px;
-}
-
-.comment {
-  background: #2d2d2d;
-  padding: 10px;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  border-left: 4px solid #6a0dad;
-}
-
-@media (max-width: 768px) {
-  .left-side, .right-side {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-}
-
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
+      justify-content: space-between;
+    }
+    .left-side, .right-side {
+      width: 48%;
+      margin: 1%;
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    .header-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.08; /* Light background effect */
+      background: url('/mnt/data/file-LDhmnv7KyqF8jL6LDT8Q4B') no-repeat center center;
+      background-size: cover;
+      z-index: 1;
+    }
+    .left-side-content {
+      position: relative;
+      z-index: 2;
+    }
+    h1, h2 {
+      color: #c77dff;
+    }
+    p, li, input, textarea {
+      color: #ddd;
+    }
+    .lang-toggle, button {
+      background-color: #6a0dad;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    .lang-toggle:hover, button:hover {
+      background-color: #9a4dff;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    input, textarea {
+      width: 100%;
+      background: #2a2a2a;
+      border: 1px solid #6a0dad;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    iframe {
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+    }
+    .comment {
+      background: #2d2d2d;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      border-left: 4px solid #6a0dad;
+    }
+    @media (max-width: 768px) {
+      .left-side, .right-side {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="left-side">
-      <h1>Lumbini Guest House</h1>
-      <p>Islampur Village, Sector 38, Gurugram</p>
-      <button class="lang-toggle">नेपाली / Hindi</button>
+      <div class="header-image"></div> <!-- Light background image -->
+      <div class="left-side-content">
+        <h1>Lumbini Guest House</h1>
+        <p>Islampur Village, Sector 38, Gurugram</p>
+        <button class="lang-toggle">नेपाली / Hindi</button>
+      </div>
     </div>
     <div class="right-side">
       <div class="facility">
@@ -135,18 +146,18 @@ iframe {
         commentList.appendChild(newComment);
         document.getElementById("comment").value = "";
       }
-    }function sendBookingToWhatsApp() {
-  const name = document.getElementById("name").value;
-  const date = document.getElementById("date").value;
-  if (name && date) {
-    const message = `New Booking%0AName: ${name}%0ADate: ${date}`;
-    const phone = "917428671478";
-    window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
-  } else {
-    alert("Please enter your name and booking date.");
-  }
-}
-
+    }
+    function sendBookingToWhatsApp() {
+      const name = document.getElementById("name").value;
+      const date = document.getElementById("date").value;
+      if (name && date) {
+        const message = `New Booking%0AName: ${name}%0ADate: ${date}`;
+        const phone = "917428671478";
+        window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+      } else {
+        alert("Please enter your name and booking date.");
+      }
+    }
   </script>
 </body>
 </html>
